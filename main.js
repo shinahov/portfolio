@@ -80,13 +80,41 @@ const projectData = [
     more: "#"
   },
   {
-    title: "Clustering mit B‑Method (SimB/ProB)",
-    summary: "Modellierung von K‑Means und hierarchischem Clustering (Single Linkage) in B, Visualisierung und Steuerung über ProB/SimB.",
-    tech: ["B‑Method", "ProB", "Python"],
-    tags: ["formal", "python"],
-    code: "#",
-    more: "#"
-  }
+  title: "Clustering with the B-Method (ProB/SimB)",
+  summary: "Formal modeling of K-Means and Hierarchical Clustering (Single Linkage) in B, verified in ProB/SimB and visualized via VisB.",
+  tech: ["B-Method", "ProB", "SimB", "VisB", "Python"],
+  tags: ["formal", "clustering", "visualization"],
+  code: "https://github.com/shinahov/Clustering_B",
+  docsHtml: `
+  <div class="docs-gallery">
+    <img class="image" src="K-means_B.png" alt="K-Means model in B and VisB visualization" />
+    <img class="image" src="K-means-py.png" alt="K-Means clustering with Python and scikit-learn" />
+  </div>
+
+  <div class="docs-text">
+    <p><strong>Project Description:</strong><br>
+    This project demonstrates how classical clustering algorithms like <strong>K-Means</strong>, <strong>Hierarchical Clustering</strong> (Single Linkage), and <strong>Gaussian Mixture Models (GMM)</strong> can be formally specified and executed in the <strong>B-Method</strong>.
+    The goal is to show that data-driven algorithms can also be represented, verified, and visualized through <strong>formal methods</strong>.</p>
+
+    <p><strong>Concept and Implementation:</strong><br>
+    • Models are specified as <strong>B machines</strong> and animated/verified using <strong>ProB</strong> and <strong>SimB</strong>.<br>
+    • The system state and results are visualized in <strong>VisB</strong>.<br>
+    • <strong>Python</strong> and <strong>Java</strong> handle automation, data generation, and communication using <strong>JSON</strong>.<br>
+    • Comparative runs are performed using <strong>scikit-learn</strong> for validation.</p>
+
+    <p><strong>Technologies Used:</strong><br>
+    • B-Method (Formal Specification)<br>
+    • ProB / SimB (Model Checking & Simulation)<br>
+    • VisB (Visualization)<br>
+    • Python & Java (Integration & Automation)</p>
+
+    <p><strong>Purpose:</strong><br>
+    The project connects <strong>formal verification</strong> with <strong>machine learning concepts</strong>, demonstrating that clustering logic can be formally reasoned about and visually analyzed through the B-toolchain.</p>
+  </div>
+  `
+}
+
+
 
 ];
 
