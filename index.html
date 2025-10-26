@@ -1,0 +1,171 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ibragim Shinakhov – Portfolio</title>
+  <meta name="description" content="Portfolio of Ibragim Shinakhov: Software Development (Java, C, Python), Databases/SQL, Embedded-oriented projects, and Formal Methods (B-Method/ProB)." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ibragim Shinakhov – Portfolio" />
+  <meta property="og:description" content="Projects, Background, Goals." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container row">
+      <a class="brand" href="#home">IS</a>
+      <nav class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#about">About Me</a>
+        <a href="#goals">What I Want</a>
+        <a href="#contact" class="btn btn-primary btn-small">Contact</a>
+        <button id="themeToggle" class="btn btn-ghost btn-small" aria-label="Toggle Dark Mode">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="section hero">
+      <div class="container grid-2">
+        <div>
+          <h1 class="headline">Ibragim Shinakhov</h1>
+          <p class="lead">
+  Computer Science graduate from Solingen with a strong focus on embedded programming and machine learning. 
+  Passionate about building efficient, reliable systems and continuously improving through learning and teamwork.
+</p>
+
+
+          <div class="actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#about" class="btn btn-outline">About Me</a>
+          </div>
+        </div>
+        <div>
+          <div class="profile-card">
+            <img class="avatar" src="me.jpeg" alt="Ibragim Shinakhov" />
+            <ul class="facts">
+              <li>Location: Solingen, Wuppertal</li>
+              <li>Languages: German, Russian, English, Kabardian</li>
+              <li>Currently: Finishing Bachelor’s degree</li>
+              <li>Interests: Embedded software, Operating systems, Machine learning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <div class="filters">
+            <button class="chip is-active" data-filter="all">All</button>
+            <button class="chip" data-filter="java">Java</button>
+            <button class="chip" data-filter="python">Python</button>
+            <button class="chip" data-filter="embedded">Embedded/Arduino</button>
+            <button class="chip" data-filter="c">C/Assembler</button>
+            <button class="chip" data-filter="sql">SQL/DWH</button>
+            <button class="chip" data-filter="formal">B-Method/ProB</button>
+          </div>
+        </div>
+
+        <div id="projectGrid" class="grid-2">
+          <!-- Cards will be inserted by main.js from projectData -->
+          <noscript>Please enable JavaScript to view the projects.</noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="section section-muted">
+      <div class="container grid-2">
+        <div>
+          <h2>About Me</h2>
+          <p>
+  I hold a Bachelor's degree in Computer Science and have a strong interest in 
+  <strong>embedded programming</strong>, <strong>data science</strong>, and 
+  <strong>machine learning</strong>. My technical strengths include 
+  <strong>Java</strong>, <strong>Python</strong>, and <strong>C</strong>, along with 
+  expertise in <strong>SQL</strong> and <strong>database design</strong>. 
+  I enjoy working close to hardware as well as developing intelligent systems that combine 
+  software engineering with analytical thinking.
+</p>
+<p>
+  I value clean, maintainable code, simple and logical architectures, and clear documentation. 
+  My long-term goal is to become an expert in <strong>embedded systems</strong> or 
+  <strong>machine learning</strong>, continuously bridging low-level programming with 
+  high-level data intelligence.
+</p>
+
+          </p>
+        </div>
+        <div>
+          <div class="info-cards">
+            <div class="info">
+              <h3>Tech</h3>
+              <p>Java, C, Python, SQL</p>
+            </div>
+            <div class="info">
+              <h3>Areas of Interest</h3>
+              <p>Embedded software, operating systems, deep learning</p>
+            </div>
+            <div class="info">
+              <h3>Currently</h3>
+              <p>Finishing Bachelor’s degree; building portfolio; deepening knowledge</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <section id="goals" class="section">
+      <div class="container">
+        <h2>What I Want</h2>
+        <ul class="goals">
+  <li>Become a true expert in <strong>embedded systems</strong> and <strong>machine learning</strong> through consistent hard work, curiosity, and continuous learning.</li>
+  <li>Learn from experienced teammates and contribute to projects that have real technical depth and impact.</li>
+  <li>Grow step by step into a <strong>team leader</strong> who supports others, shares knowledge, and drives innovation.</li>
+</ul>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-muted">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>
+          Best reached via e-mail, or alternatively through GitHub or LinkedIn.
+        </p>
+        <div class="contact-links">
+          <a class="btn btn-outline" href="mailto:shinakhov.ibragim@gmail.com">E-Mail</a>
+          <a class="btn btn-outline" href="https://github.com/shinahov" target="_blank" rel="noreferrer noopener">GitHub</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/ibragim-shinakhov-8214a7273/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container row">
+      <small>© <span id="year"></span> Ibragim Shinakhov</small>
+      <a href="#home" class="to-top">Back to top</a>
+    </div>
+  </footer>
+
+  
+  <!-- More-Modal -->
+
+<script src="main.js"></script>
+
+</body>
+</html>
