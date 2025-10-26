@@ -5,7 +5,7 @@ const projectData = [
   title: "Arduino Waveform Visualizer on LCD",
   summary: "Displays different mathematical waveforms live on a 16x2 LCD display.",
   tech: ["Arduino", "C++", "LCD", "Analog Input"],
-  tags: ["embedded", "c"],
+  tags: ["embedded", "c++"],
   code: "https://github.com/shinahov/WaveVisualizer",
   video: "https://www.youtube.com/watch?v=ch2Q4CFUjxY", 
   docsHtml: `
@@ -70,20 +70,37 @@ const projectData = [
   </div>
   `
 },
+{
+  title: "UFC Fight Prediction (ML Pipeline)",
+  summary: "End-to-end pipeline to predict UFC fight outcomes: data collection, feature engineering, model training, and evaluation.",
+  tech: ["Python", "pandas", "scikit-learn", "XGBoost", "Matplotlib"],
+  tags: ["Python", "machine-learning", "classification", "sports-analytics"],
+  code: "https://github.com/shinahov/ufc-fight-prediction",
+  docsHtml: `
+  <div class="docs-text">
+    <p><strong>Project Description:</strong><br>
+    This project builds a machine learning model to <strong>predict UFC fight outcomes</strong>. It automatically scrapes up-to-date fight data, cleans and prepares it, and then trains several models to estimate the winner probabilities.</p>
 
-  {
-    title: "Hack‑Assembler (Nand2Tetris)",
-    summary: "Assembler in Java zum Übersetzen des Hack‑Maschinencodes. Fokus: saubere Ausgabe nur mit Dateiname + Binärcode.",
-    tech: ["Java"],
-    tags: ["java"],
-    code: "#",
-    more: "#"
-  },
+    <p><strong>Technologies & Methods:</strong><br>
+    • <strong>Python</strong> for data processing and automation<br>
+    • <strong>pandas / NumPy</strong> for data cleaning and feature engineering<br>
+    • <strong>scikit-learn</strong> and <strong>XGBoost</strong> for training and evaluation<br>
+    • <strong>BeautifulSoup / requests</strong> for web scraping<br>
+    • <strong>Matplotlib</strong> for visualization</p>
+
+    <p><strong>Overview:</strong><br>
+    The pipeline fetches current UFC fight data from the web, processes fighter statistics, builds numerical features (reach, striking rate, win streaks, etc.), and evaluates model accuracy and feature importance to understand key predictors.</p>
+  </div>
+  `
+
+},
+
+
   {
   title: "Clustering with the B-Method (ProB/SimB)",
   summary: "Formal modeling of K-Means and Hierarchical Clustering (Single Linkage) in B, verified in ProB/SimB and visualized via VisB.",
   tech: ["B-Method", "ProB", "SimB", "VisB", "Python"],
-  tags: ["formal", "clustering", "visualization"],
+  tags: ["Python", "formal", "clustering", "visualization"],
   code: "https://github.com/shinahov/Clustering_B",
   docsHtml: `
   <div class="docs-gallery">
