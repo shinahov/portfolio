@@ -129,7 +129,60 @@ const projectData = [
     The project connects <strong>formal verification</strong> with <strong>machine learning concepts</strong>, demonstrating that clustering logic can be formally reasoned about and visually analyzed through the B-toolchain.</p>
   </div>
   `
+},
+
+
+{
+  title: "MockLang – Hobby Programming Language (WIP)",
+  summary: "A small experimental language for learning how lexers, parsers, and symbol tables work.",
+  tech: ["Python"],
+  tags: ["Python"],
+  code: "https://github.com/shinahov/MockLang",
+  video: null,
+  docsHtml: `
+    <h4>Project Description</h4>
+    <p>MockLang is an experimental hobby programming language created to learn 
+    how compilers work internally. It focuses on understanding the pipeline 
+    from tokenizing to parsing and symbol table management.</p>
+
+    <h4>Current Progress</h4>
+    <ul>
+      <li><code>Tokenizer.py</code>: converts the input source code into tokens</li>
+      <li><code>Parser.py</code>: builds a basic Abstract Syntax Tree (AST)</li>
+      <li><code>Symbol_table.py</code>: manages identifiers, scopes, and symbols</li>
+    </ul>
+
+    <h4>Planned Work</h4>
+    <p>Upcoming steps include semantic analysis and later a bytecode or 
+    assembly backend.</p>
+
+    <p><strong>Language:</strong> Python</p>
+  `
+},
+
+{
+  title: "Bioinformatics – Rosalind Problem Solving",
+  summary: "Solving classical DNA-related problems from the Rosalind platform using Python.",
+  tech: ["Python", "bioinformatics"],
+  tags: ["Python", "bioinformatics"],
+  code: "https://github.com/shinahov/bioinformatics",
+  video: null,
+  docsHtml: `
+    <h4>Project Description</h4>
+    <p>This repository contains my solutions to various bioinformatics challenges 
+    from the Rosalind platform. The goal is to practice DNA sequence processing, 
+    GC-content analysis, complement generation, and other core concepts from 
+    computational biology.</p>
+
+    <h4>Purpose</h4>
+    <p>I use this project to improve my bioinformatics skills and continuously 
+    extend the repository with new tasks as I progress.</p>
+
+    <p><strong>Language:</strong> Python</p>
+  `
 }
+
+
 
 
 
