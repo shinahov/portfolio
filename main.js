@@ -2,7 +2,7 @@
 
 const projectData = [
 { 
-  order: 6,
+  order: 7,
   title: "Arduino Waveform Visualizer on LCD",
   summary: "Displays different mathematical waveforms live on a 16x2 LCD display.",
   tech: ["Arduino", "C++", "LCD", "Analog Input"],
@@ -35,7 +35,7 @@ const projectData = [
   },
 
   {
-  order: 5,
+  order: 6,
   title: "TafelAnwendung – Family Management System",
   summary: "JavaFX desktop app using SQLite to manage families for a food bank (Tafel). Includes visit tracking and simple data entry.",
   tech: ["Java", "JavaFX", "SQLite"],
@@ -43,8 +43,8 @@ const projectData = [
   code: "https://github.com/shinahov/Tafel/tree/master",
   docsHtml: `
   <div class="docs-gallery">
-    <img class="image" src="besuch_reg.png" alt="Visit registration window" />
-    <img class="image" src="Fam_hinzufugen.png" alt="Add family dialog" />
+    <img class="image" src="images/besuch_reg.png" alt="Visit registration window" />
+    <img class="image" src="images/Fam_hinzufugen.png" alt="Add family dialog" />
   </div>
 
   <div class="docs-text">
@@ -73,7 +73,7 @@ const projectData = [
   `
 },
 {
-  order: 3,
+  order: 4,
   title: "UFC Fight Prediction (ML Pipeline)",
   summary: "End-to-end pipeline to predict UFC fight outcomes: data collection, feature engineering, model training, and evaluation.",
   tech: ["Python", "pandas", "scikit-learn", "XGBoost", "Matplotlib"],
@@ -100,7 +100,7 @@ const projectData = [
 
 
   {
-  order: 2,
+  order: 3,
   title: "Clustering with the B-Method (ProB/SimB)",
   summary: "Formal modeling of K-Means and Hierarchical Clustering (Single Linkage) in B, verified in ProB/SimB and visualized via VisB.",
   tech: ["B-Method", "ProB", "SimB", "VisB", "Python"],
@@ -108,8 +108,8 @@ const projectData = [
   code: "https://github.com/shinahov/Clustering_B",
   docsHtml: `
   <div class="docs-gallery">
-    <img class="image" src="K-means_B.png" alt="K-Means model in B and VisB visualization" />
-    <img class="image" src="K-means-py.png" alt="K-Means clustering with Python and scikit-learn" />
+    <img class="image" src="images/K-means_B.png" alt="K-Means model in B and VisB visualization" />
+    <img class="image" src="images/K-means-py.png" alt="K-Means clustering with Python and scikit-learn" />
   </div>
 
   <div class="docs-text">
@@ -196,7 +196,7 @@ end</code></pre>
 
 
 {
-  order: 4,
+  order: 5,
   title: "Bioinformatics – Rosalind Problem Solving",
   summary: "Solving classical DNA-related problems from the Rosalind platform using Python.",
   tech: ["Python", "bioinformatics"],
@@ -216,7 +216,75 @@ end</code></pre>
 
     <p><strong>Language:</strong> Python</p>
   `
-}
+},
+
+{
+  order: 2, 
+  title: "Real-Time Ride Sharing – Prototype (Concept)",
+  summary: "Prototype of an Uber-like map app with route-based matching: drivers already traveling A→B can pick up walkers near their route for a ride segment. Real-time simulation + live map visualization.",
+  tech: ["Python", "OSRM", "Leaflet", "WebSockets", "Geo Routing"],
+  tags: ["Python", "web", "realtime", "routing", "maps"],
+  code: "https://github.com/shinahov/DriveBy",
+  video: null, 
+  docsHtml: `
+    <h4>Concept</h4>
+    <p>
+      Think of it as an “Uber-like” map app, but with a different idea:
+      drivers are <strong>already traveling from A → B</strong> (no dedicated ride start),
+      and walkers are going in a similar direction. The system inserts a <strong>ride segment</strong> into the walker’s trip:
+      walk → pickup → ride → dropoff → walk.
+    </p>
+
+    <div class="docs-gallery">
+    <img class="image" src="images/map-navigation.png" alt="Map navigation view" />
+    <img class="image" src="images/pickup.png" alt="Pickup" />
+    <img class="image" src="images/simulation-view.png" alt="simulation view" />
+    </div>
+
+    <h4>Route Matching (Pickup & Dropoff)</h4>
+    <ul>
+      <li>Routes are fetched via <strong>OSRM</strong> (driving for drivers, walking for walkers).</li>
+      <li>Routes are stored as polylines: lists of <code>(lat, lon)</code> points.</li>
+      <li>Matching finds:
+        <ul>
+          <li>a pickup point on the driver route that minimizes walking distance from walker start</li>
+          <li>a later dropoff point that minimizes walking distance to walker destination</li>
+        </ul>
+      </li>
+      <li>“Best driver” selection is currently simple and based on travel/walking cost.</li>
+    </ul>
+
+    <h4>What’s implemented</h4>
+    <ul>
+      <li><strong>Backend simulation loop (Python):</strong> agents move along polylines over time (<code>t += dt</code>).</li>
+      <li><strong>Route + match computation:</strong> OSRM routing + prototype matching step.</li>
+      <li><strong>Frontend map (Leaflet):</strong> driver/walker positions, match routes, pickup/dropoff markers.</li>
+      <li><strong>Real-time updates:</strong> switching from polling to <strong>WebSockets</strong> (almost finished).</li>
+    </ul>
+
+    <h4>How it works (prototype architecture)</h4>
+    <ul>
+      <li>Backend receives “create agent” requests (driver/walker), computes routes, tries matching, updates positions each tick.</li>
+      <li>Frontend shows live state on a map (navigation-style follow/zoom + overview).</li>
+      <li>Matching logic is “good enough for a prototype”, not yet designed for high load.</li>
+    </ul>
+
+    <h4>Current Stage</h4>
+    <p>
+      WebSocket implementation is almost finished. The system works as a technical prototype, but UI/state transitions still need polishing.
+    </p>
+
+    <h4>Next steps</h4>
+    <ol>
+      <li><strong>Stabilize UI + simulation flow</strong> (state switches, unmatched → matched transitions, timing issues).</li>
+      <li><strong>Stable ID/session flow</strong> for multi-tab / multi-user usage (no collisions, clean transitions).</li>
+      <li><strong>Real GPS input from client</strong> (via JS browser geolocation) + real address selection instead of pinned start/destination.</li>
+      <li><strong>Persistence</strong> (sessions, agents, matches) so runs survive refresh/restart and map naturally to a DB model.</li>
+      <li><strong>Better matching for scale</strong> (spatial indexing, feasibility checks, fairer policies, stronger objective functions).</li>
+    </ol>
+  `
+},
+
 
 
 
