@@ -1,7 +1,8 @@
 
 
 const projectData = [
-{
+{ 
+  order: 6,
   title: "Arduino Waveform Visualizer on LCD",
   summary: "Displays different mathematical waveforms live on a 16x2 LCD display.",
   tech: ["Arduino", "C++", "LCD", "Analog Input"],
@@ -34,6 +35,7 @@ const projectData = [
   },
 
   {
+  order: 5,
   title: "TafelAnwendung – Family Management System",
   summary: "JavaFX desktop app using SQLite to manage families for a food bank (Tafel). Includes visit tracking and simple data entry.",
   tech: ["Java", "JavaFX", "SQLite"],
@@ -71,6 +73,7 @@ const projectData = [
   `
 },
 {
+  order: 3,
   title: "UFC Fight Prediction (ML Pipeline)",
   summary: "End-to-end pipeline to predict UFC fight outcomes: data collection, feature engineering, model training, and evaluation.",
   tech: ["Python", "pandas", "scikit-learn", "XGBoost", "Matplotlib"],
@@ -97,6 +100,7 @@ const projectData = [
 
 
   {
+  order: 2,
   title: "Clustering with the B-Method (ProB/SimB)",
   summary: "Formal modeling of K-Means and Hierarchical Clustering (Single Linkage) in B, verified in ProB/SimB and visualized via VisB.",
   tech: ["B-Method", "ProB", "SimB", "VisB", "Python"],
@@ -133,34 +137,66 @@ const projectData = [
 
 
 {
-  title: "MockLang – Hobby Programming Language (WIP)",
-  summary: "A small experimental language for learning how lexers, parsers, and symbol tables work.",
-  tech: ["Python"],
-  tags: ["Python"],
+  order: 1, 
+  title: "MockLang – Hobby Programming Language",
+  summary: "Educational programming language project: lexer → parser → semantic analysis → VM + x86_64 assembly generation (WIP). Stack-based with multi-return functions.",
+  tech: ["Python", "Lexer/Parser", "Symbol Table", "VM", "x86_64 ASM"],
+  tags: ["Python", "compilers", "language", "vm", "asm"],
   code: "https://github.com/shinahov/MockLang",
   video: null,
   docsHtml: `
     <h4>Project Description</h4>
-    <p>MockLang is an experimental hobby programming language created to learn 
-    how compilers work internally. It focuses on understanding the pipeline 
-    from tokenizing to parsing and symbol table management.</p>
+    <p>
+      MockLang is a small hobby programming language built to understand how compilers work end-to-end:
+      tokenizing, parsing, semantic checks, and then generating low-level code. It’s purely educational
+      and inspired by the Nand2Tetris style of building a toolchain step by step.
+    </p>
 
-    <h4>Current Progress</h4>
+    <h4>Highlights</h4>
     <ul>
-      <li><code>Tokenizer.py</code>: converts the input source code into tokens</li>
-      <li><code>Parser.py</code>: builds a basic Abstract Syntax Tree (AST)</li>
-      <li><code>Symbol_table.py</code>: manages identifiers, scopes, and symbols</li>
+      <li><strong>Stack-based execution model</strong> (VM and assembly are stack-oriented)</li>
+      <li><strong>Multiple return values</strong> (functions can return more than one value)</li>
+      <li><strong>Scoped symbol tables</strong> with type and scope analysis</li>
+      <li><strong>Control flow</strong>: if/else, loops, expressions</li>
+      <li><strong>No explicit constructors</strong> (object creation follows language rules instead of a dedicated ctor keyword)</li>
     </ul>
 
-    <h4>Planned Work</h4>
-    <p>Upcoming steps include semantic analysis and later a bytecode or 
-    assembly backend.</p>
+    <h4>Toolchain</h4>
+    <ul>
+      <li><strong>Tokenizer.py</strong> – Lexer</li>
+      <li><strong>Parser.py</strong> – AST builder</li>
+      <li><strong>SymbolAnalyzer.py</strong> – scope + type analysis</li>
+      <li><strong>VMGenerator.py</strong> – VM instruction generation</li>
+      <li><strong>ASMGenerator.py</strong> – x86_64 NASM-style code generation (WIP)</li>
+    </ul>
 
-    <p><strong>Language:</strong> Python</p>
+    <h4>Example</h4>
+    <pre><code>class Ball [radius:int, x:int, y:int, speed:float]:
+  create int z;
+  set z to 10;
+  print(z);
+
+  getRadius() -> int:
+    return self.radius;
+  end
+
+  fn main() -> void:
+    create int b = 5;
+    print(b);
+  END
+end</code></pre>
+
+    <h4>Current Stage</h4>
+    <p>
+      VM generation is implemented. Assembly generation is in progress, including handling stack calling conventions
+      and copying multiple return values back to the caller’s argument area.
+    </p>
   `
 },
 
+
 {
+  order: 4,
   title: "Bioinformatics – Rosalind Problem Solving",
   summary: "Solving classical DNA-related problems from the Rosalind platform using Python.",
   tech: ["Python", "bioinformatics"],
@@ -192,15 +228,17 @@ function renderProjects(filter = "all") {
   const grid = document.getElementById("projectGrid");
   grid.innerHTML = "";
 
-  const list = projectData.filter(p => filter === "all" || (p.tags && p.tags.includes(filter)));
+  const list = projectData.filter(p => filter === "all" || (p.tags && p.tags.includes(filter)))
+  .sort((a,b)=> a.order - b.order);
 
-  list.forEach((p, i) => {
+  list.forEach((p) => {
+    const idx = projectData.indexOf(p); // original index in projectData
+  
     const el = document.createElement("article");
     el.className = "card";
-
-   
+  
     const hasDetails = !!(p.video || p.docsHtml);
-
+  
     el.innerHTML = `
       <div class="card-header">
         <span class="badge">${p.tech?.[0] ?? "Project"}</span>
@@ -212,11 +250,11 @@ function renderProjects(filter = "all") {
       </div>
       <div class="card-actions">
         ${p.code ? `<a class="btn btn-outline" href="${p.code}" target="_blank" rel="noreferrer noopener">Code</a>` : ""}
-        ${hasDetails ? `<button class="btn btn-ghost" data-expand="${i}" aria-expanded="false" aria-controls="details-${i}">More</button>` : ""}
+        ${hasDetails ? `<button class="btn btn-ghost" data-expand="${idx}" aria-expanded="false" aria-controls="details-${idx}">More</button>` : ""}
       </div>
-
+  
       ${hasDetails ? `
-      <div id="details-${i}" class="card-details" aria-hidden="true">
+      <div id="details-${idx}" class="card-details" aria-hidden="true">
         <div class="card-details__inner">
           <div class="card-details__body">
             <div class="card-details__video"></div>
@@ -225,9 +263,10 @@ function renderProjects(filter = "all") {
         </div>
       </div>` : ""}
     `;
-
+  
     grid.appendChild(el);
   });
+  
 }
 
 
