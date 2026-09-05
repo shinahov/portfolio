@@ -238,9 +238,22 @@ function renderProjects(filter = 'all') {
       body.innerHTML = project.docsHtml || '';
       body.querySelectorAll('img').forEach(img => { img.loading = 'lazy'; img.decoding = 'async'; });
       if (project.video) {
+        const player = document.createElement('div');
+        const videoId = new URL(project.video).searchParams.get('v');
         const link = document.createElement('a');
         link.href = project.video; link.textContent = 'Watch demonstration on YouTube ↗'; link.target = '_blank'; link.rel = 'noopener noreferrer';
-        body.prepend(link);
+        body.prepend(player, link);
+        details.addEventListener('toggle', () => {
+          player.replaceChildren();
+          if (details.open && videoId && /^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+            iframe.title = `${project.title} demonstration`;
+            iframe.loading = 'lazy';
+            iframe.allowFullscreen = true;
+            player.append(iframe);
+          }
+        });
       }
       details.append(summary, body);
       article.append(details);

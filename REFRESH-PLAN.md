@@ -12,3 +12,5 @@ Each numbered step receives its own commit. No remote push is part of this refre
 Step 2: Implemented paper, serif, rust-accent design inspired by the supplied Poincare Embeddings presentation. Preserved all seven original projects and their notes. Added responsive layouts, native accessible project disclosures, and a complete light/dark palette. JavaScript syntax check passed.
 
 Step 3: Added confirmed master’s study and all five employment entries from the supplied LinkedIn profile. Added four verified GitHub projects, refreshed MockLang, and documented content sources. Eleven projects total.
+
+Step 4: Passed 12 functional/structural/contrast checks, JavaScript syntax validation, local HTTP response, and Git diff checks. Restored on-demand embedded video with an accessible title; closing details stops playback. Formatted CSS for readable future diffs. See VALIDATION.md for scope and rollback instructions. All four steps completed.
