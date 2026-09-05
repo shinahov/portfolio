@@ -292,196 +292,64 @@ end</code></pre>
 
 ];
 
-function renderProjects(filter = "all") {
-  const grid = document.getElementById("projectGrid");
-  grid.innerHTML = "";
-
-  const list = projectData.filter(p => filter === "all" || (p.tags && p.tags.includes(filter)))
-  .sort((a,b)=> a.order - b.order);
-
-  list.forEach((p) => {
-    const idx = projectData.indexOf(p); // original index in projectData
-  
-    const el = document.createElement("article");
-    el.className = "card";
-  
-    const hasDetails = !!(p.video || p.docsHtml);
-  
-    el.innerHTML = `
-      <div class="card-header">
-        <span class="badge">${p.tech?.[0] ?? "Project"}</span>
-        <h3 class="card-title">${p.title}</h3>
-      </div>
-      <div class="card-body">
-        <p>${p.summary}</p>
-        <div class="tags">${(p.tech || []).map(t => `<span class='tag'>${t}</span>`).join("")}</div>
-      </div>
-      <div class="card-actions">
-        ${p.code ? `<a class="btn btn-outline" href="${p.code}" target="_blank" rel="noreferrer noopener">Code</a>` : ""}
-        ${hasDetails ? `<button class="btn btn-ghost" data-expand="${idx}" aria-expanded="false" aria-controls="details-${idx}">More</button>` : ""}
-      </div>
-  
-      ${hasDetails ? `
-      <div id="details-${idx}" class="card-details" aria-hidden="true">
-        <div class="card-details__inner">
-          <div class="card-details__body">
-            <div class="card-details__video"></div>
-            <div class="card-details__docs"></div>
-          </div>
-        </div>
-      </div>` : ""}
-    `;
-  
-    grid.appendChild(el);
-  });
-  
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 }
 
-
-function setupFilters() {
-  const chips = document.querySelectorAll(".chip");
-  chips.forEach(chip => {
-    chip.addEventListener("click", () => {
-      chips.forEach(c => c.classList.remove("is-active"));
-      chip.classList.add("is-active");
-      const f = chip.getAttribute("data-filter");
-      renderProjects(f);
-    });
-  });
-}
-
-function setupTheme() {
-  const btn = document.getElementById("themeToggle");
-  const stored = localStorage.getItem("theme") || "dark";
-  applyTheme(stored);
-  btn.textContent = stored === "dark" ? "Light" : "Dark";
-  btn.addEventListener("click", () => {
-    const newTheme = document.documentElement.classList.contains("theme-light") ? "dark" : "light";
-    applyTheme(newTheme);
-    btn.textContent = newTheme === "dark" ? "Light" : "Dark";
-  });
+function renderProjects(filter = 'all') {
+  const grid = document.getElementById('projectGrid');
+  const projects = projectData.filter(project => filter === 'all' || project.tags.some(tag => tag.toLowerCase() === filter)).sort((a, b) => a.order - b.order);
+  grid.replaceChildren();
+  for (const project of projects) {
+    const article = document.createElement('article');
+    article.className = 'project-card';
+    const number = [...projectData].sort((a, b) => a.order - b.order).indexOf(project) + 1;
+    article.innerHTML = `<div class="project-meta"><span class="category">${escapeHtml(project.category || project.tech[0])}</span><span>${String(number).padStart(2, '0')}</span></div>
+      <h3>${escapeHtml(project.title)}</h3><p class="project-summary">${escapeHtml(project.summary)}</p>
+      <ul class="tags" aria-label="Technologies">${project.tech.map(tech => `<li>${escapeHtml(tech)}</li>`).join('')}</ul>
+      <div class="card-actions"><a href="${escapeHtml(project.code)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.title)} source on GitHub">View source ↗</a>${project.demo ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener noreferrer">Live demo ↗</a>` : ''}</div>`;
+    if (project.docsHtml || project.video) {
+      const details = document.createElement('details');
+      details.className = 'project-detail';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Project notes';
+      summary.setAttribute('aria-label', `Project notes for ${project.title}`);
+      const body = document.createElement('div');
+      body.className = 'detail-body';
+      body.innerHTML = project.docsHtml || '';
+      body.querySelectorAll('img').forEach(img => { img.loading = 'lazy'; img.decoding = 'async'; });
+      if (project.video) {
+        const link = document.createElement('a');
+        link.href = project.video; link.textContent = 'Watch demonstration on YouTube ↗'; link.target = '_blank'; link.rel = 'noopener noreferrer';
+        body.prepend(link);
+      }
+      details.append(summary, body);
+      article.append(details);
+    }
+    grid.append(article);
+  }
+  document.getElementById('projectCount').textContent = `${projects.length} project${projects.length === 1 ? '' : 's'}`;
 }
 
 function applyTheme(mode) {
-  if (mode === "light") {
-    document.documentElement.classList.add("theme-light");
-  } else {
-    document.documentElement.classList.remove("theme-light");
-  }
-  localStorage.setItem("theme", mode);
+  const dark = mode === 'dark';
+  document.documentElement.classList.toggle('theme-dark', dark);
+  const button = document.getElementById('themeToggle');
+  button.textContent = dark ? 'Light mode' : 'Dark mode';
+  button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
+  try { localStorage.setItem('theme', mode); } catch { /* Preferences are optional when storage is blocked. */ }
 }
 
-function setYear() {
-  const y = document.getElementById("year");
-  y.textContent = new Date().getFullYear();
-}
-
-function toEmbed(url) {
-  if (!url) return null;
-  try {
-    const u = new URL(url);
-    if (u.hostname.includes("youtube.com")) {
-      const id = u.searchParams.get("v");
-      return id ? `https://www.youtube.com/embed/${id}` : null;
-    }
-    if (u.hostname === "youtu.be") {
-      const id = u.pathname.slice(1);
-      return id ? `https://www.youtube.com/embed/${id}` : null;
-    }
-    if (u.hostname.includes("vimeo.com")) {
-      const id = u.pathname.split("/").filter(Boolean).pop();
-      return id ? `https://player.vimeo.com/video/${id}` : null;
-    }
-    return null;
-  } catch { return null; }
-}
-
-
-function closeAllDetails() {
-  document.querySelectorAll(".card-details.open").forEach(d => {
-    d.classList.remove("open");
-    d.setAttribute("aria-hidden", "true");
-    const btn = document.querySelector(`[aria-controls="${d.id}"]`);
-    if (btn) btn.setAttribute("aria-expanded", "false");
-
-
-    const v = d.querySelector(".card-details__video");
-    if (v) v.innerHTML = "";
-  });
-}
-
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-expand]");
-  if (!btn) return;
-
-  const idx = parseInt(btn.getAttribute("data-expand"), 10);
-  const details = document.getElementById(`details-${idx}`);
-  if (!details) return;
-
-  const isOpen = details.classList.contains("open");
-
-
-  closeAllDetails();
-
-  if (!isOpen) {
- 
-    details.classList.add("open");
-    details.setAttribute("aria-hidden", "false");
-    btn.setAttribute("aria-expanded", "true");
-
-
-    const p = projectData[idx];
-    const videoWrap = details.querySelector(".card-details__video");
-    const docsWrap  = details.querySelector(".card-details__docs");
-
-    if (videoWrap) {
-      const embed = toEmbed(p.video);
-      videoWrap.innerHTML = embed
-        ? `<iframe src="${embed}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-        : "";
-    }
-    if (docsWrap) {
-      docsWrap.innerHTML = p.docsHtml || "";
-    }
-
- 
-    details.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
- 
-  const btnTheme = document.getElementById("themeToggle");
-  const stored = localStorage.getItem("theme") || "dark";
-  applyTheme(stored);
-  if (btnTheme) {
-    btnTheme.textContent = stored === "dark" ? "Light" : "Dark";
-    btnTheme.addEventListener("click", () => {
-      const newTheme = document.documentElement.classList.contains("theme-light") ? "dark" : "light";
-      applyTheme(newTheme);
-      btnTheme.textContent = newTheme === "dark" ? "Light" : "Dark";
-    });
-  }
-
-
-  const chips = document.querySelectorAll(".chip");
-  chips.forEach(chip => {
-    chip.addEventListener("click", () => {
-      chips.forEach(c => c.classList.remove("is-active"));
-      chip.classList.add("is-active");
-      const f = chip.getAttribute("data-filter") || "all";
-      renderProjects(f);
-    
-    });
-  });
-
-  
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
-
- 
-  renderProjects("all");
+document.addEventListener('DOMContentLoaded', () => {
+  let theme = 'light';
+  try { theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'; } catch { /* Use paper theme. */ }
+  applyTheme(theme);
+  document.getElementById('themeToggle').addEventListener('click', () => applyTheme(document.documentElement.classList.contains('theme-dark') ? 'light' : 'dark'));
+  document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+    renderProjects(button.dataset.filter);
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+  renderProjects();
 });
 

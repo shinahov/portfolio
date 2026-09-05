@@ -8,3 +8,5 @@ Original baseline: 689bdb8. Existing history is preserved on branch refresh/port
 4. Validate assets, markup, filtering, details, theme behavior, and JavaScript. Record checks and commit fixes.
 
 Each numbered step receives its own commit. No remote push is part of this refresh.
+
+Step 2: Implemented paper, serif, rust-accent design inspired by the supplied Poincare Embeddings presentation. Preserved all seven original projects and their notes. Added responsive layouts, native accessible project disclosures, and a complete light/dark palette. JavaScript syntax check passed.
