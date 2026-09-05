@@ -10,3 +10,5 @@ Original baseline: 689bdb8. Existing history is preserved on branch refresh/port
 Each numbered step receives its own commit. No remote push is part of this refresh.
 
 Step 2: Implemented paper, serif, rust-accent design inspired by the supplied Poincare Embeddings presentation. Preserved all seven original projects and their notes. Added responsive layouts, native accessible project disclosures, and a complete light/dark palette. JavaScript syntax check passed.
+
+Step 3: Added confirmed master’s study and all five employment entries from the supplied LinkedIn profile. Added four verified GitHub projects, refreshed MockLang, and documented content sources. Eleven projects total.
