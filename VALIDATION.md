@@ -30,3 +30,6 @@ The work is on `refresh/portfolio-2026`. The original baseline is `689bdb8`, pre
 Use `git log --oneline` to see each step and `git diff 689bdb8..HEAD` to review the complete refresh. To inspect the original independently without changing this folder, use `git worktree add ../site-original 689bdb8` from the site folder. To undo a particular step while preserving history, use `git revert <commit>`; later commits may depend on earlier steps.
 
 Open `index.html` directly or serve this folder with any static web server. Editing project content only requires updating the `projectData` array in `main.js`.
+
+## Reference-led revision — 6 September 2026
+Retested all eleven projects, filters, theme controls, disclosures, video, assets, and navigation. Four circular project shortcuts restore all projects before navigating, even after filtering. Checked the revised light/dark palette and corrected selected-filter contrast. Mobile composition stacks below 800px. Local preview returned HTTP 200. Browser visual inspection was not performed.

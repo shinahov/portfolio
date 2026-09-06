@@ -64,6 +64,7 @@ h2 em { font-style: normal; }
 .project-count { margin: .4rem 0 0; }
 .filters { justify-content: center; }
 .chip { border-radius: 999px; }
+.chip[aria-pressed=true] { color: var(--ink); }
 .project-grid { column-gap: 5rem; }
 .project-card { padding-block: 2.3rem; }
 .project-card:first-child { display: flex; grid-column: auto; }
@@ -95,7 +96,7 @@ h2 em { font-style: normal; }
   .about-grid { gap: 3rem; }
   .project-grid { gap: 0 2.5rem; }
 }
-@media(max-width:700px) {
+@media(max-width:800px) {
   .container { width: calc(100% - 2.5rem); }
   .header-inner { grid-template-columns: auto 1fr; min-height: auto; padding-block: 1rem; }
   nav { grid-column: 1/-1; order: 3; justify-content: center; gap: 1.4rem; }
