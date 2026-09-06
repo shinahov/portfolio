@@ -22,3 +22,9 @@ Step 4: Passed 12 functional/structural/contrast checks, JavaScript syntax valid
 Local-only revision; no publishing or remote push.
 
 Reference revision completed: circular portrait and project shortcuts, centered navigation, coral palette, simplified headings, and preserved content. Functional and revised color-contrast checks passed. All changes committed locally.
+
+## Complete redesign — 6 September 2026
+Baseline: c2876ba. User rejected minor revisions and requested research-led replacement of the entire style.
+1. Research community criticism and record a concrete design direction.
+2. Replace the complete stylesheet, page composition, and project presentation. Use a compact personal profile and source-backed project exhibits, white/forest/orange palette, sans-serif type, and plain navigation. Preserve all eleven projects and employment/education.
+3. Verify content, filters, notes, video, images, anchors, storage fallback, and theme contrast. Commit each phase. Local only.
