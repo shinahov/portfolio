@@ -28,3 +28,5 @@ Baseline: c2876ba. User rejected minor revisions and requested research-led repl
 1. Research community criticism and record a concrete design direction.
 2. Replace the complete stylesheet, page composition, and project presentation. Use a compact personal profile and source-backed project exhibits, white/forest/orange palette, sans-serif type, and plain navigation. Preserve all eleven projects and employment/education.
 3. Verify content, filters, notes, video, images, anchors, storage fallback, and theme contrast. Commit each phase. Local only.
+
+Complete redesign finished. Removed the superseded reference stylesheet; replaced all CSS, main page structure, navigation/filter presentation, project rendering, and personal copy. Sources and rationale are in DESIGN-RESEARCH.md. Verification recorded in VALIDATION.md.
