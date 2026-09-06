@@ -215,24 +215,40 @@ function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 }
 
+function projectExhibit(project) {
+  const repo = new URL(project.code).pathname.split('/')[2];
+  if (repo === 'MockLang') return `<figure class="project-visual"><div class="source-example"><p class="source-name">Example · MockLang</p><pre><code>create Person p =
+  Person("Alice", 30);
+
+print(p.name);
+print(p.age);</code></pre></div><figcaption>Source → VM → NASM → executable</figcaption></figure>`;
+  const screenshots = {
+    DriveBy: ['map-navigation.png', 'Map navigation in the DriveBy prototype'],
+    Clustering_B: ['K-means_B.png', 'K-Means model and VisB visualization']
+  };
+  if (!screenshots[repo]) return '';
+  const [file, caption] = screenshots[repo];
+  return `<figure class="project-visual"><img src="images/${file}" alt="${caption}" loading="lazy"><figcaption>${caption}</figcaption></figure>`;
+}
+
 function renderProjects(filter = 'all') {
   const grid = document.getElementById('projectGrid');
-  const projects = projectData.filter(project => filter === 'all' || project.tags.some(tag => tag.toLowerCase() === filter)).sort((a, b) => a.order - b.order);
+  const projects = projectData.filter(project => filter === 'all' || project.tags.some(tag => tag.toLowerCase() === filter)).sort((a,b) => a.order - b.order);
   grid.replaceChildren();
   for (const project of projects) {
     const article = document.createElement('article');
-    article.className = 'project-card';
+    const exhibit = projectExhibit(project);
+    article.className = exhibit ? 'project-card featured' : 'project-card';
     article.id = 'project-' + new URL(project.code).pathname.split('/')[2].toLowerCase();
-    const number = [...projectData].sort((a, b) => a.order - b.order).indexOf(project) + 1;
-    article.innerHTML = `<div class="project-meta"><span class="category">${escapeHtml(project.category || project.tech[0])}</span><span>${String(number).padStart(2, '0')}</span></div>
+    article.innerHTML = `${exhibit}<div class="project-copy"><div class="project-meta">${escapeHtml(project.category || project.tech[0])}</div>
       <h3>${escapeHtml(project.title)}</h3><p class="project-summary">${escapeHtml(project.summary)}</p>
       <ul class="tags" aria-label="Technologies">${project.tech.map(tech => `<li>${escapeHtml(tech)}</li>`).join('')}</ul>
-      <div class="card-actions"><a href="${escapeHtml(project.code)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.title)} source on GitHub">View source ↗</a>${project.demo ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener noreferrer">Live demo ↗</a>` : ''}</div>`;
+      <div class="card-actions"><a href="${escapeHtml(project.code)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.title)} source on GitHub">Source code</a>${project.demo ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener noreferrer">Live demo</a>` : ''}</div></div>`;
     if (project.docsHtml || project.video) {
       const details = document.createElement('details');
       details.className = 'project-detail';
       const summary = document.createElement('summary');
-      summary.textContent = 'Project notes';
+      summary.textContent = 'Read project notes';
       summary.setAttribute('aria-label', `Project notes for ${project.title}`);
       const body = document.createElement('div');
       body.className = 'detail-body';
@@ -242,7 +258,9 @@ function renderProjects(filter = 'all') {
         const player = document.createElement('div');
         const videoId = new URL(project.video).searchParams.get('v');
         const link = document.createElement('a');
-        link.href = project.video; link.textContent = 'Watch demonstration on YouTube ↗'; link.target = '_blank'; link.rel = 'noopener noreferrer';
+        link.href = project.video;
+        link.textContent = 'Watch demonstration on YouTube';
+        link.target = '_blank'; link.rel = 'noopener noreferrer';
         body.prepend(player, link);
         details.addEventListener('toggle', () => {
           player.replaceChildren();
@@ -250,8 +268,7 @@ function renderProjects(filter = 'all') {
             const iframe = document.createElement('iframe');
             iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
             iframe.title = `${project.title} demonstration`;
-            iframe.loading = 'lazy';
-            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy'; iframe.allowFullscreen = true;
             player.append(iframe);
           }
         });
@@ -270,21 +287,15 @@ function applyTheme(mode) {
   const button = document.getElementById('themeToggle');
   button.textContent = dark ? 'Light mode' : 'Dark mode';
   button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
-  try { localStorage.setItem('theme', mode); } catch { /* Preferences are optional when storage is blocked. */ }
+  try { localStorage.setItem('theme', mode); } catch { /* Storage is optional. */ }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   let theme = 'light';
-  try { theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'; } catch { /* Use paper theme. */ }
+  try { theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'; } catch { /* Use the light palette. */ }
   applyTheme(theme);
   document.getElementById('themeToggle').addEventListener('click', () => applyTheme(document.documentElement.classList.contains('theme-dark') ? 'light' : 'dark'));
-  document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
-    renderProjects(button.dataset.filter);
-  }));
+  document.getElementById('projectFilter').addEventListener('change', event => renderProjects(event.target.value));
   document.getElementById('year').textContent = new Date().getFullYear();
   renderProjects();
-  document.querySelectorAll('.project-preview').forEach(link => link.addEventListener('click', () => {
-    document.querySelector('[data-filter="all"]').click();
-  }));
 });
