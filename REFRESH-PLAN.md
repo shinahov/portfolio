@@ -14,3 +14,9 @@ Step 2: Implemented paper, serif, rust-accent design inspired by the supplied Po
 Step 3: Added confirmed master’s study and all five employment entries from the supplied LinkedIn profile. Added four verified GitHub projects, refreshed MockLang, and documented content sources. Eleven projects total.
 
 Step 4: Passed 12 functional/structural/contrast checks, JavaScript syntax validation, local HTTP response, and Git diff checks. Restored on-demand embedded video with an accessible title; closing details stops playback. Formatted CSS for readable future diffs. See VALIDATION.md for scope and rollback instructions. All four steps completed.
+
+## Reference-led revision — 6 September 2026
+1. Record revision plan; preserve baseline 581c0e5.
+2. Replace the hero composition with centered navigation, a circular portrait, side-aligned identity and biography, coral accents, and circular project previews inspired by the supplied screenshot. Keep the portfolio content and functionality.
+3. Validate navigation, project links, filters, themes, and content preservation; commit results.
+Local-only revision; no publishing or remote push.
