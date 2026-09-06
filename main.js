@@ -222,6 +222,7 @@ function renderProjects(filter = 'all') {
   for (const project of projects) {
     const article = document.createElement('article');
     article.className = 'project-card';
+    article.id = 'project-' + new URL(project.code).pathname.split('/')[2].toLowerCase();
     const number = [...projectData].sort((a, b) => a.order - b.order).indexOf(project) + 1;
     article.innerHTML = `<div class="project-meta"><span class="category">${escapeHtml(project.category || project.tech[0])}</span><span>${String(number).padStart(2, '0')}</span></div>
       <h3>${escapeHtml(project.title)}</h3><p class="project-summary">${escapeHtml(project.summary)}</p>
@@ -283,4 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
   document.getElementById('year').textContent = new Date().getFullYear();
   renderProjects();
+  document.querySelectorAll('.project-preview').forEach(link => link.addEventListener('click', () => {
+    document.querySelector('[data-filter="all"]').click();
+  }));
 });

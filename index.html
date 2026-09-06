@@ -10,6 +10,7 @@
   <meta property="og:description" content="Java working student at Mineral Minds. Computer Science master’s student at HHU Düsseldorf. Explore my projects and experience.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reference.css">
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -18,29 +19,32 @@
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Ibragim Shinakhov, home">IS<span aria-hidden="true">.</span></a>
       <nav aria-label="Main navigation">
-        <a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        <a href="#home">Home</a><a href="#projects">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
       </nav>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">Dark mode</button>
     </div>
   </header>
   <main id="main">
     <section class="hero container" id="home" aria-labelledby="intro-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Software engineering · Data · Systems</p>
-        <h1 id="intro-title">Ibragim<br><em>Shinakhov.</em></h1>
-        <p class="hero-role">Java working student at Mineral Minds.<br>Computer Science master’s student at HHU Düsseldorf.</p>
-        <p class="lead">I like understanding what happens beneath the surface — and building software that puts that understanding to work.</p>
-        <div class="actions"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
-        <p class="location">Based in Solingen, Germany</p>
+      <p class="signature"><span>Software</span> &amp; curiosity</p>
+      <div class="hero-composition">
+        <div class="hero-copy">
+          <h1 id="intro-title">Ibragim<br> Shinakhov</h1>
+          <p class="hero-subtitle">Software developer</p>
+        </div>
+        <figure class="portrait"><div class="portrait-frame"><img src="images/me.jpeg" width="704" height="721" alt="Ibragim Shinakhov" fetchpriority="high"></div></figure>
+        <div class="hero-introduction"><p>I build with Java at Mineral Minds and explore compilers, data, and machine learning in my own projects.</p><p class="study">Master’s student in Computer Science.<br>HHU Düsseldorf.</p></div>
       </div>
-      <figure class="portrait">
-        <div class="portrait-frame"><img src="images/me.jpeg" width="704" height="721" alt="Portrait of Ibragim Shinakhov" fetchpriority="high"></div>
-        <figcaption><span>A curiosity for how things work.</span><span aria-hidden="true">01 — IS</span></figcaption>
-      </figure>
+      <div class="hero-caption"><p>Solingen, Germany</p><a class="button primary" href="#projects">Explore my work</a></div>
+      <nav class="project-previews" aria-label="Selected project shortcuts">
+        <a class="project-preview" href="#project-mocklang"><span class="preview-circle preview-code" aria-hidden="true">fn()</span>MockLang</a>
+        <a class="project-preview" href="#project-driveby"><span class="preview-circle"><img src="images/map-navigation.png" alt="" loading="lazy"></span>DriveBy</a>
+        <a class="project-preview" href="#project-clustering_b"><span class="preview-circle"><img src="images/K-means_B.png" alt="" loading="lazy"></span>Clustering</a>
+        <a class="project-preview" href="#project-tafel"><span class="preview-circle"><img src="images/besuch_reg.png" alt="" loading="lazy"></span>Tafel</a>
+      </nav>
     </section>
-    <div class="container discipline-strip" aria-label="Technical interests"><span>Software engineering</span><span>Machine learning</span><span>Formal methods</span><span>Low-level systems</span></div>
     <section class="section container" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading"><div><p class="eyebrow">01 / Selected work</p><h2 id="projects-title">From ideas to<br><em>working systems.</em></h2></div><p class="section-intro">Independent projects and academic explorations. Source code, implementation notes, and lessons along the way.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">01 / Selected work</p><h2 id="projects-title">Selected work</h2></div><p class="section-intro">Independent projects and academic explorations. Source code, implementation notes, and lessons along the way.</p></div>
       <div class="project-toolbar"><div class="filters" role="group" aria-label="Filter projects">
         <button class="chip" type="button" data-filter="all" aria-pressed="true">All work</button>
         <button class="chip" type="button" data-filter="python" aria-pressed="false">Python</button>
@@ -53,11 +57,11 @@
       <div id="projectGrid" class="project-grid"><noscript>Browse my projects on <a href="https://github.com/shinahov?tab=repositories">GitHub</a>. Enable JavaScript for project details and filters.</noscript></div>
     </section>
     <section class="about-section" id="about" aria-labelledby="about-title"><div class="container about-grid">
-      <div><p class="eyebrow">02 / Background</p><h2 id="about-title">Building depth.<br><em>Staying curious.</em></h2></div>
+      <div><p class="eyebrow">02 / Background</p><h2 id="about-title">A little about me</h2></div>
       <div class="about-copy"><p>I’m pursuing a master’s in Computer Science at Heinrich Heine University Düsseldorf while working as a Java software developer at Mineral Minds.</p><p>My background spans database development, business intelligence, and university tutoring. In my own projects, I explore compilers, machine learning, image processing, and formal methods — following ideas from their foundations to working implementations.</p><dl class="facts"><div><dt>Core tools</dt><dd>Java, Python, C, C++, SQL</dd></div><div><dt>Languages</dt><dd>German, English, Russian, Kabardian</dd></div><div><dt>Based in</dt><dd>Solingen, North Rhine-Westphalia</dd></div></dl></div>
     </div></section>
     <section class="section container" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading"><div><p class="eyebrow">03 / Experience &amp; education</p><h2 id="experience-title">Learning.<br><em>Then applying it.</em></h2></div></div>
+      <div class="section-heading"><div><p class="eyebrow">03 / Experience &amp; education</p><h2 id="experience-title">Experience &amp; education</h2></div></div>
       <div id="experience-content">
         <h3 class="timeline-group-title">Professional experience</h3>
         <article class="timeline-item"><p class="timeline-date">Jul 2026 — Present</p><div><h3>Working Student Software Developer · Java</h3><p class="organization">Mineral Minds</p><p>Working student · Remote</p></div></article>
@@ -71,7 +75,7 @@
       </div>
     </section>
     <section class="goals-section container" id="goals"><p class="eyebrow">What comes next</p><p class="direction">Go deeper into software engineering and machine learning. Learn from experienced teammates. Build the judgment to support others.</p></section>
-    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container"><p class="eyebrow">04 / Get in touch</p><h2 id="contact-title">Good work starts<br>with a <em>conversation.</em></h2><div class="contact-bottom"><a class="email-link" href="mailto:shinakhov.ibragim@gmail.com">shinakhov.ibragim@gmail.com <span aria-hidden="true">↗</span></a><div class="social-links"><a href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/ibragim-shinakhov-8214a7273/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></div></section>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container"><p class="eyebrow">04 / Get in touch</p><h2 id="contact-title">Let’s talk.</h2><div class="contact-bottom"><a class="email-link" href="mailto:shinakhov.ibragim@gmail.com">shinakhov.ibragim@gmail.com <span aria-hidden="true">↗</span></a><div class="social-links"><a href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/ibragim-shinakhov-8214a7273/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></div></section>
   </main>
   <footer class="container site-footer"><span>© <span id="year">2026</span> Ibragim Shinakhov</span><a href="#home">Back to top ↑</a></footer>
 </body>
