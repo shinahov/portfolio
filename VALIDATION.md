@@ -36,3 +36,5 @@ Retested all eleven projects, filters, theme controls, disclosures, video, asset
 
 ## Complete redesign — 6 September 2026
 Passed: JavaScript syntax; all 11 projects/source URLs retained; three project exhibits; category select and result counts; both themes; blocked-storage fallback; eleven native disclosures; video load/unload; seven experience/education entries; anchor targets and unique IDs; local assets; external link attributes; nine new palette combinations at 4.5:1 or better. Exactly one replacement stylesheet is loaded. Main project and biography text is at least 16px. Local preview returned HTTP 200. Tests used LinkeDOM; browser layout and visual inspection were not performed.
+
+7 September browser review supersedes prior untested-layout limitations: tested in Edge at 1440/1024/390/320px and 200% text enlargement, both themes, project expansion/filtering, keyboard focus, video, deep links, and images. See UI-REVIEW.md for measured results.

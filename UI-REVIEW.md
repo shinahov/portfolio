@@ -22,3 +22,13 @@ The forest/white palette, actual project evidence, unboxed project rows, working
 ## Verification plan
 
 Recheck desktop/mobile screenshots, both themes, category filtering, show-all/show-less behavior, direct project links, keyboard navigation, notes, video lifecycle, images, reduced motion, and 200% text enlargement. Record measured outcomes after changes. No remote push or publishing.
+
+## Implemented and verified
+
+- Mobile header uses two intentional rows; the first project heading appears at approximately 766px at 390px width (831px at 320px).
+- Default 390px page height fell from 8,522px to 5,561px, about 35%. All eleven projects remain available through expansion or category filtering.
+- Notes sit within their project's copy; metadata and action text are larger; primary links have 44px touch heights.
+- Full-size image links preserve original screenshots. The map preview is 207,728 bytes, down from 2,576,260 bytes (about 92% smaller).
+- Fixed grid overflow discovered at 200% text enlargement.
+- Passed actual Edge browser checks at 1440, 1024, 390, and 320px: no page overflow at normal or 200% text sizes, both themes, category results, expand/collapse and focus, direct project links, loaded images, native disclosures, video loading/unloading, keyboard skip link, and reduced motion. No JavaScript page errors occurred.
+- Desktop, mobile, and dark screenshots were visually inspected. This is not a full assistive-technology or cross-browser certification; testing used Edge.

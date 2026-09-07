@@ -228,7 +228,7 @@ print(p.age);</code></pre></div><figcaption>Source → VM → NASM → executabl
   };
   if (!screenshots[repo]) return '';
   const [file, caption] = screenshots[repo];
-  return `<figure class="project-visual"><a href="images/${file}" target="_blank" rel="noopener noreferrer" aria-label="Open ${caption} at full size"><img src="images/${file}" alt="${caption}" loading="lazy"></a><figcaption>${caption} · <a href="images/${file}" target="_blank" rel="noopener noreferrer">Full size</a></figcaption></figure>`;
+  return `<figure class="project-visual"><a href="images/${file}" target="_blank" rel="noopener noreferrer" aria-label="Open ${caption} at full size"><img src="images/${repo === 'DriveBy' ? 'map-preview.webp' : file}" alt="${caption}" loading="lazy"></a><figcaption>${caption} · <a href="images/${file}" target="_blank" rel="noopener noreferrer">Full size</a></figcaption></figure>`;
 }
 
 let showAllProjects = false;
@@ -323,3 +323,4 @@ document.addEventListener('DOMContentLoaded', () => {
   revealLinkedProject();
   window.addEventListener('hashchange', revealLinkedProject);
 });
+

@@ -215,3 +215,15 @@ p { margin: 0 0 1rem; }
 }
 @media print { .more-projects { display: none; } }
 
+/* Reflow when text is enlarged independently of the viewport. */
+.portfolio-layout,.background { min-width: 0; }
+.profile,.about-copy,.experience,.filter-label { min-width: 0; }
+h1,h2,h3,.wordmark { overflow-wrap: anywhere; }
+.filter-label { max-width: 100%; }
+@media(max-width:760px) {
+  .portfolio-layout { grid-template-columns: minmax(0,1fr); }
+  .profile { grid-template-columns: 64px minmax(0,1fr); }
+  .masthead { grid-template-columns: minmax(0,1fr) auto; }
+  .background { grid-template-columns: minmax(0,1fr); }
+  .filter-label select { display: block; max-width: 100%; }
+}
