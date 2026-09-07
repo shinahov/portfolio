@@ -167,3 +167,51 @@ p { margin: 0 0 1rem; }
   .portfolio-layout,.background { display: block; }
   .project-card { break-inside: avoid; }
 }
+
+/* Browser review refinements, 7 September 2026. */
+.main-nav { margin-left: auto; }
+.theme-toggle { flex-shrink: 0; }
+.main-nav a,.profile-links a,.card-actions a,.contact-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.profile-links { margin-top: 10px; }
+.project-meta,.tags,.card-actions,.project-detail summary,.timeline-date,.timeline-item p,.facts { font-size: .875rem; }
+.project-visual figcaption { font-size: .8125rem; line-height: 1.7; }
+.project-visual>a { display: block; }
+.project-card.featured .project-detail { margin-top: 12px; }
+.project-copy>.project-detail { grid-column: 1/-1; }
+.detail-body { font-size: 1rem; }
+.detail-body pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.more-projects { display: block; color: var(--ink); background: transparent; border: 1px solid var(--line); min-height: 48px; padding: 12px 20px; margin-top: 24px; font-size: .9375rem; }
+.more-projects:hover { border-color: var(--ink); background: var(--code); }
+.project-card h3:focus { outline-offset: 6px; }
+.project-card:not(.featured) .project-copy>.project-detail { margin-top: 8px; }
+@media(max-width:1150px) {
+  .project-card.featured .project-detail { margin-top: 12px; }
+  .project-card:not(.featured) .project-copy { display: block; }
+  .project-card:not(.featured) .project-summary { margin-top: 15px; }
+}
+@media(max-width:760px) {
+  .masthead { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; padding-block: 16px; }
+  .wordmark { align-self: center; }
+  .theme-toggle { grid-column: 2; grid-row: 1; margin: 0; }
+  .main-nav { grid-column: 1/-1; grid-row: 2; margin: 0; justify-content: space-between; gap: 8px; }
+  .profile { display: grid; grid-template-columns: 64px 1fr; column-gap: 18px; padding: 20px; }
+  .profile-photo { width: 64px; height: 76px; grid-row: 1; margin: 0; }
+  .profile h1 { font-size: 1.75rem; align-self: center; margin: 0; }
+  .profile-role { grid-column: 1/-1; margin: 16px 0 10px; }
+  .profile-study { margin-bottom: 10px; line-height: 1.65; }
+  .profile-location { margin-top: 4px; padding-top: 12px; margin-bottom: 0; }
+  .profile-links { margin: 0; }
+  .portfolio-layout { gap: 28px; }
+  .work-intro { padding-top: 16px; margin-bottom: 8px; }
+  .project-toolbar { margin-bottom: 0; }
+  .project-card { padding-block: 24px; }
+  .source-example { min-height: 170px; padding: 18px; }
+  .project-card.featured { gap: 16px; }
+  .project-visual { order: 1; }
+  .project-copy { order: 0; }
+  .filter-label select { font-size: 1rem; }
+  .more-projects { width: 100%; }
+  .background { margin-top: 40px; }
+}
+@media print { .more-projects { display: none; } }
+

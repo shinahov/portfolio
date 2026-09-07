@@ -228,14 +228,17 @@ print(p.age);</code></pre></div><figcaption>Source → VM → NASM → executabl
   };
   if (!screenshots[repo]) return '';
   const [file, caption] = screenshots[repo];
-  return `<figure class="project-visual"><img src="images/${file}" alt="${caption}" loading="lazy"><figcaption>${caption}</figcaption></figure>`;
+  return `<figure class="project-visual"><a href="images/${file}" target="_blank" rel="noopener noreferrer" aria-label="Open ${caption} at full size"><img src="images/${file}" alt="${caption}" loading="lazy"></a><figcaption>${caption} · <a href="images/${file}" target="_blank" rel="noopener noreferrer">Full size</a></figcaption></figure>`;
 }
+
+let showAllProjects = false;
 
 function renderProjects(filter = 'all') {
   const grid = document.getElementById('projectGrid');
   const projects = projectData.filter(project => filter === 'all' || project.tags.some(tag => tag.toLowerCase() === filter)).sort((a,b) => a.order - b.order);
   grid.replaceChildren();
-  for (const project of projects) {
+  const visible = filter === 'all' && !showAllProjects ? projects.slice(0, 3) : projects;
+  for (const project of visible) {
     const article = document.createElement('article');
     const exhibit = projectExhibit(project);
     article.className = exhibit ? 'project-card featured' : 'project-card';
@@ -274,11 +277,15 @@ function renderProjects(filter = 'all') {
         });
       }
       details.append(summary, body);
-      article.append(details);
+      article.querySelector('.project-copy').append(details);
     }
     grid.append(article);
   }
-  document.getElementById('projectCount').textContent = `${projects.length} project${projects.length === 1 ? '' : 's'}`;
+  document.getElementById('projectCount').textContent = visible.length < projects.length ? `${visible.length} of ${projects.length} projects` : `${projects.length} project${projects.length === 1 ? '' : 's'}`;
+  const more = document.getElementById('moreProjects');
+  more.hidden = filter !== 'all';
+  more.textContent = showAllProjects ? 'Show fewer projects' : `View the other ${projectData.length - visible.length} projects`;
+  more.setAttribute('aria-expanded', String(showAllProjects));
 }
 
 function applyTheme(mode) {
@@ -297,5 +304,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('themeToggle').addEventListener('click', () => applyTheme(document.documentElement.classList.contains('theme-dark') ? 'light' : 'dark'));
   document.getElementById('projectFilter').addEventListener('change', event => renderProjects(event.target.value));
   document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('moreProjects').addEventListener('click', () => {
+    showAllProjects = !showAllProjects;
+    renderProjects();
+    const target = showAllProjects ? document.querySelectorAll('.project-card h3')[3] : document.getElementById('projects-title');
+    target.setAttribute('tabindex', '-1');
+    target.focus({preventScroll:true});
+    target.scrollIntoView({block:'start', behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  });
+  function revealLinkedProject() {
+    if (!location.hash.startsWith('#project-')) return;
+    showAllProjects = true;
+    document.getElementById('projectFilter').value = 'all';
+    renderProjects();
+    document.getElementById(location.hash.slice(1))?.scrollIntoView({block:'start'});
+  }
   renderProjects();
+  revealLinkedProject();
+  window.addEventListener('hashchange', revealLinkedProject);
 });

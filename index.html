@@ -18,27 +18,29 @@
     <a class="wordmark" href="#home">Ibragim Shinakhov</a>
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">Dark mode</button>
+
     </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">Dark mode</button>
   </header>
   <main class="wrap" id="main">
     <div class="portfolio-layout">
       <aside class="profile" aria-labelledby="intro-title">
         <img class="profile-photo" src="images/me.jpeg" width="110" height="130" alt="Ibragim Shinakhov" fetchpriority="high">
         <h1 id="intro-title">Ibragim<br>Shinakhov</h1>
-        <p class="profile-role">Working student<br>Software Developer · Java<br>Mineral Minds</p>
-        <p class="profile-study">I’m studying Computer Science at master’s level at Heinrich Heine University Düsseldorf.</p>
+        <p class="profile-role">Java developer · Working student<br>Mineral Minds</p>
+        <p class="profile-study">Computer Science master’s student at HHU Düsseldorf.</p>
         <p class="profile-location">Solingen, Germany</p>
         <div class="profile-links"><a href="mailto:shinakhov.ibragim@gmail.com">Email</a><a href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub</a></div>
       </aside>
       <section class="work" id="projects" aria-labelledby="projects-title">
         <div class="work-heading"><h2 id="projects-title">Projects</h2><p>Code, experiments &amp; coursework</p></div>
-        <p class="work-intro">A compiler from scratch, a ride-sharing prototype, and clustering models in B. Here’s what I’ve been working on.</p>
+        <p class="work-intro">Selected projects in compilers, routing, and formal methods.</p>
         <div class="project-toolbar">
           <label class="filter-label" for="projectFilter">Show <select id="projectFilter"><option value="all">All projects</option><option value="python">Python</option><option value="java">Java</option><option value="c++">C++ / Embedded</option><option value="formal">Formal methods</option><option value="web">Web</option><option value="bioinformatics">Bioinformatics</option></select></label>
           <p class="project-count" id="projectCount" aria-live="polite"></p>
         </div>
         <div class="project-grid" id="projectGrid"><noscript>Find all my projects on <a href="https://github.com/shinahov?tab=repositories">GitHub</a>. Enable JavaScript for notes and filtering.</noscript></div>
+        <button class="more-projects" id="moreProjects" type="button" aria-expanded="false" aria-controls="projectGrid">Show all 11 projects</button>
       </section>
     </div>
     <div class="background">
