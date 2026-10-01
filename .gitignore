@@ -1,0 +1,28 @@
+# --- Private folder: everything that does NOT belong in the public repo ----
+# Notes, plans, reviews, old working copies, downloads. Lives only on the laptop.
+_private/
+
+# --- Operating system / editor files -------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# --- Node / tools ---------------------------------------------------------
+node_modules/
+npm-debug.log*
+.npm/
+
+# --- Cloudflare Worker: local state and secrets (NEVER commit) -----------
+.wrangler/
+.dev.vars
+.env
+.env.*
+*.secret
+
+# --- Safety net, in case something was not moved into _private/ yet -------
+old-style-template/
+images/*.avif

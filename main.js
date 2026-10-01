@@ -1,326 +1,697 @@
-const projectData = [
-  {
-    "order": 7,
-    "title": "Arduino Waveform Visualizer",
-    "summary": "Displays different mathematical waveforms live on a 16x2 LCD display.",
-    "tech": [
-      "Arduino",
-      "C++",
-      "LCD",
-      "Analog Input"
-    ],
-    "tags": [
-      "embedded",
-      "c++"
-    ],
-    "code": "https://github.com/shinahov/WaveVisualizer",
-    "video": "https://www.youtube.com/watch?v=ch2Q4CFUjxY",
-    "docsHtml": "\n  <h4>Project Description</h4>\n  <p>This Arduino project visualizes various mathematical functions \n  — sine, cosine, tangent, square, saw, triangle, and a complex waveform — \n  on a 16x2 LCD screen.</p>\n\n  <h4>Hardware</h4>\n  <ul>\n    <li>Arduino Uno</li>\n    <li>16x2 LCD using the LiquidCrystal library</li>\n    <li>Two potentiometers to control frequency and speed</li>\n    <li>A button to switch between wave types</li>\n  </ul>\n\n  <h4>Software Details</h4>\n  <p>The signals are generated using mathematical functions \n  (<code>sin</code>, <code>cos</code>, and custom square/saw functions).\n  The code uses <code>LiquidCrystal</code> for display output and \n  reacts to analog inputs from A0 and A1.</p>\n\n  <p><strong>Language:</strong> C++ (Arduino)</p>\n",
-    "category": "Embedded systems"
-  },
-  {
-    "order": 6,
-    "title": "Tafel · Family Management",
-    "summary": "JavaFX desktop app using SQLite to manage families for a food bank (Tafel). Includes visit tracking and simple data entry.",
-    "tech": [
-      "Java",
-      "JavaFX",
-      "SQLite"
-    ],
-    "tags": [
-      "java",
-      "sql"
-    ],
-    "code": "https://github.com/shinahov/Tafel/tree/master",
-    "docsHtml": "\n  <div class=\"docs-gallery\">\n    <img class=\"image\" src=\"images/besuch_reg.png\" alt=\"Visit registration window\" />\n    <img class=\"image\" src=\"images/Fam_hinzufugen.png\" alt=\"Add family dialog\" />\n  </div>\n\n  <div class=\"docs-text\">\n    <p><strong>Project Description:</strong><br>\n    The TafelAnwendung is a desktop application built with <strong>JavaFX</strong> and <strong>SQLite</strong>. It is designed to help manage families who regularly use the services of a food bank. The app supports adding families and members, recording their visits, and tracking important notes such as blacklist warnings.</p>\n\n    <p><strong>Main Features:</strong><br>\n    • <strong>Family Management:</strong> Add, edit, and delete families and their members.<br>\n    • <strong>Visit Logging:</strong> Automatically records visits; older entries can be cleaned up.<br>\n    • <strong>Blacklist Check:</strong> Warns if a person is blacklisted.<br>\n    • <strong>Auto Deletion:</strong> Deletes old visit logs (older than two months) with one click.</p>\n\n    <p><strong>Architecture:</strong><br>\n    • <strong>Frontend (UI):</strong> Built with JavaFX for an intuitive interface.<br>\n    • <strong>Database:</strong> Uses SQLite to store families and visit records locally.<br>\n    • <strong>Controller Layer:</strong> Links UI and database logic with clear separation of concerns.</p>\n\n    <p><strong>Requirements:</strong><br>\n    • Java 11 or higher<br>\n    • JavaFX library<br>\n    • SQLite database engine</p>\n\n    <p><strong>Future Improvements:</strong><br>\n    This project could be extended with reports, an enhanced blacklist system, and an improved user interface.</p>\n  </div>\n  ",
-    "category": "Java & databases"
-  },
-  {
-    "order": 4,
-    "title": "UFC Fight Prediction",
-    "summary": "End-to-end pipeline to predict UFC fight outcomes: data collection, feature engineering, model training, and evaluation.",
-    "tech": [
-      "Python",
-      "pandas",
-      "scikit-learn",
-      "XGBoost",
-      "Matplotlib"
-    ],
-    "tags": [
-      "Python",
-      "machine-learning",
-      "classification",
-      "sports-analytics"
-    ],
-    "code": "https://github.com/shinahov/ufc-fight-prediction",
-    "docsHtml": "\n  <div class=\"docs-text\">\n    <p><strong>Project Description:</strong><br>\n    This project builds a machine learning model to <strong>predict UFC fight outcomes</strong>. It automatically scrapes up-to-date fight data, cleans and prepares it, and then trains several models to estimate the winner probabilities.</p>\n\n    <p><strong>Technologies & Methods:</strong><br>\n    • <strong>Python</strong> for data processing and automation<br>\n    • <strong>pandas / NumPy</strong> for data cleaning and feature engineering<br>\n    • <strong>scikit-learn</strong> and <strong>XGBoost</strong> for training and evaluation<br>\n    • <strong>BeautifulSoup / requests</strong> for web scraping<br>\n    • <strong>Matplotlib</strong> for visualization</p>\n\n    <p><strong>Overview:</strong><br>\n    The pipeline fetches current UFC fight data from the web, processes fighter statistics, builds numerical features (reach, striking rate, win streaks, etc.), and evaluates model accuracy and feature importance to understand key predictors.</p>\n  </div>\n  ",
-    "category": "Machine learning"
-  },
-  {
-    "order": 3,
-    "title": "Clustering with the B-Method",
-    "summary": "Formal modeling of K-Means and Hierarchical Clustering (Single Linkage) in B, verified in ProB/SimB and visualized via VisB.",
-    "tech": [
-      "B-Method",
-      "ProB",
-      "SimB",
-      "VisB",
-      "Python"
-    ],
-    "tags": [
-      "Python",
-      "formal",
-      "clustering",
-      "visualization"
-    ],
-    "code": "https://github.com/shinahov/Clustering_B",
-    "docsHtml": "\n  <div class=\"docs-gallery\">\n    <img class=\"image\" src=\"images/K-means_B.png\" alt=\"K-Means model in B and VisB visualization\" />\n    <img class=\"image\" src=\"images/K-means-py.png\" alt=\"K-Means clustering with Python and scikit-learn\" />\n  </div>\n\n  <div class=\"docs-text\">\n    <p><strong>Project Description:</strong><br>\n    This project demonstrates how classical clustering algorithms like <strong>K-Means</strong>, <strong>Hierarchical Clustering</strong> (Single Linkage), and <strong>Gaussian Mixture Models (GMM)</strong> can be formally specified and executed in the <strong>B-Method</strong>.\n    The goal is to show that data-driven algorithms can also be represented, verified, and visualized through <strong>formal methods</strong>.</p>\n\n    <p><strong>Concept and Implementation:</strong><br>\n    • Models are specified as <strong>B machines</strong> and animated/verified using <strong>ProB</strong> and <strong>SimB</strong>.<br>\n    • The system state and results are visualized in <strong>VisB</strong>.<br>\n    • <strong>Python</strong> and <strong>Java</strong> handle automation, data generation, and communication using <strong>JSON</strong>.<br>\n    • Comparative runs are performed using <strong>scikit-learn</strong> for validation.</p>\n\n    <p><strong>Technologies Used:</strong><br>\n    • B-Method (Formal Specification)<br>\n    • ProB / SimB (Model Checking & Simulation)<br>\n    • VisB (Visualization)<br>\n    • Python & Java (Integration & Automation)</p>\n\n    <p><strong>Purpose:</strong><br>\n    The project connects <strong>formal verification</strong> with <strong>machine learning concepts</strong>, demonstrating that clustering logic can be formally reasoned about and visually analyzed through the B-toolchain.</p>\n  </div>\n  ",
-    "category": "Formal methods & machine learning"
-  },
-  {
-    "order": 1,
-    "title": "MockLang",
-    "summary": "A hobby language and compiler built from scratch: source code becomes tokens, syntax trees, VM instructions, and an executable through NASM and GCC.",
-    "tech": [
-      "Python",
-      "Compiler design",
-      "Stack-based VM",
-      "NASM / GCC"
-    ],
-    "tags": [
-      "Python",
-      "compilers",
-      "language",
-      "vm",
-      "asm"
-    ],
-    "code": "https://github.com/shinahov/MockLang",
-    "video": null,
-    "docsHtml": "<h4>From syntax to execution</h4><p>Inspired by the Nand2Tetris course, MockLang explores the full compiler pipeline: tokenization, parsing, scoped symbol tables, semantic analysis, VM generation, and assembly generation.</p><p>The language supports classes, methods, control flow, and multiple return values. Its runtime uses a stack-based model.</p><h4>Example</h4><pre><code>class Person [name:String, age:int]:\n  fn main() -&gt; void:\n    create Person p = Person(\"Alice\", 30);\n    print(p.name);\n    print(p.age);\n  end\nend</code></pre><h4>Current scope</h4><p>The VM-to-assembly translator and executable build through NASM/GCC are implemented. This is an educational language with known issues, not a production toolchain.</p>",
-    "category": "Compilers & language design"
-  },
-  {
-    "order": 5,
-    "title": "Bioinformatics · Rosalind",
-    "summary": "Solving classical DNA-related problems from the Rosalind platform using Python.",
-    "tech": [
-      "Python",
-      "bioinformatics"
-    ],
-    "tags": [
-      "Python",
-      "bioinformatics"
-    ],
-    "code": "https://github.com/shinahov/bioinformatics",
-    "video": null,
-    "docsHtml": "\n    <h4>Project Description</h4>\n    <p>This repository contains my solutions to various bioinformatics challenges \n    from the Rosalind platform. The goal is to practice DNA sequence processing, \n    GC-content analysis, complement generation, and other core concepts from \n    computational biology.</p>\n\n    <h4>Purpose</h4>\n    <p>I use this project to improve my bioinformatics skills and continuously \n    extend the repository with new tasks as I progress.</p>\n\n    <p><strong>Language:</strong> Python</p>\n  ",
-    "category": "Algorithms & biology"
-  },
-  {
-    "order": 2,
-    "title": "DriveBy",
-    "summary": "Prototype of an Uber-like map app with route-based matching: drivers already traveling A→B can pick up walkers near their route for a ride segment. Real-time simulation + live map visualization.",
-    "tech": [
-      "Python",
-      "OSRM",
-      "Leaflet",
-      "WebSockets",
-      "Geo Routing"
-    ],
-    "tags": [
-      "Python",
-      "web",
-      "realtime",
-      "routing",
-      "maps"
-    ],
-    "code": "https://github.com/shinahov/DriveBy",
-    "video": null,
-    "docsHtml": "\n    <h4>Concept</h4>\n    <p>\n      Think of it as an “Uber-like” map app, but with a different idea:\n      drivers are <strong>already traveling from A → B</strong> (no dedicated ride start),\n      and walkers are going in a similar direction. The system inserts a <strong>ride segment</strong> into the walker’s trip:\n      walk → pickup → ride → dropoff → walk.\n    </p>\n\n    <div class=\"docs-gallery\">\n    <img class=\"image\" src=\"images/map-navigation.png\" alt=\"Map navigation view\" />\n    <img class=\"image\" src=\"images/pickup.png\" alt=\"Pickup\" />\n    <img class=\"image\" src=\"images/simulation-view.png\" alt=\"simulation view\" />\n    </div>\n\n    <h4>Route Matching (Pickup & Dropoff)</h4>\n    <ul>\n      <li>Routes are fetched via <strong>OSRM</strong> (driving for drivers, walking for walkers).</li>\n      <li>Routes are stored as polylines: lists of <code>(lat, lon)</code> points.</li>\n      <li>Matching finds:\n        <ul>\n          <li>a pickup point on the driver route that minimizes walking distance from walker start</li>\n          <li>a later dropoff point that minimizes walking distance to walker destination</li>\n        </ul>\n      </li>\n      <li>“Best driver” selection is currently simple and based on travel/walking cost.</li>\n    </ul>\n\n    <h4>What’s implemented</h4>\n    <ul>\n      <li><strong>Backend simulation loop (Python):</strong> agents move along polylines over time (<code>t += dt</code>).</li>\n      <li><strong>Route + match computation:</strong> OSRM routing + prototype matching step.</li>\n      <li><strong>Frontend map (Leaflet):</strong> driver/walker positions, match routes, pickup/dropoff markers.</li>\n      <li><strong>Real-time updates:</strong> switching from polling to <strong>WebSockets</strong> (almost finished).</li>\n    </ul>\n\n    <h4>How it works (prototype architecture)</h4>\n    <ul>\n      <li>Backend receives “create agent” requests (driver/walker), computes routes, tries matching, updates positions each tick.</li>\n      <li>Frontend shows live state on a map (navigation-style follow/zoom + overview).</li>\n      <li>Matching logic is “good enough for a prototype”, not yet designed for high load.</li>\n    </ul>\n\n    <h4>Current Stage</h4>\n    <p>\n      WebSocket implementation is almost finished. The system works as a technical prototype, but UI/state transitions still need polishing.\n    </p>\n\n    <h4>Next steps</h4>\n    <ol>\n      <li><strong>Stabilize UI + simulation flow</strong> (state switches, unmatched → matched transitions, timing issues).</li>\n      <li><strong>Stable ID/session flow</strong> for multi-tab / multi-user usage (no collisions, clean transitions).</li>\n      <li><strong>Real GPS input from client</strong> (via JS browser geolocation) + real address selection instead of pinned start/destination.</li>\n      <li><strong>Persistence</strong> (sessions, agents, matches) so runs survive refresh/restart and map naturally to a DB model.</li>\n      <li><strong>Better matching for scale</strong> (spatial indexing, feasibility checks, fairer policies, stronger objective functions).</li>\n    </ol>\n  ",
-    "category": "Routing & simulation"
-  },
-  {
-    "order": 8,
-    "title": "Cell Nuclei Segmentation",
-    "category": "Computer vision",
-    "summary": "A C++ and OpenCV exploration of microscopy image processing on BBBC039: intensity normalization, thresholding, mask cleanup, and connected-component analysis.",
-    "tech": [
-      "C++17",
-      "OpenCV",
-      "CMake",
-      "BBBC039"
-    ],
-    "tags": [
-      "c++",
-      "bioinformatics"
-    ],
-    "code": "https://github.com/shinahov/bbbc039-cell-segmentation",
-    "docsHtml": "<h4>Microscopy image processing</h4><p>The source loads 16-bit microscopy images and implements percentile normalization, Otsu thresholding, hole filling, morphological cleanup, connected components, and contour analysis.</p><h4>Scope</h4><p>An exploratory cell-segmentation project. The repository includes intermediate image outputs; no benchmark accuracy is claimed here.</p>"
-  },
-  {
-    "order": 9,
-    "title": "AI Tune & Refine",
-    "category": "AI interfaces",
-    "summary": "A full-stack learning project around conversational AI: a React and TypeScript chat interface with a Cloudflare Worker connecting it to Google’s generative AI API.",
-    "tech": [
-      "TypeScript",
-      "React",
-      "Vite",
-      "Cloudflare Workers"
-    ],
-    "tags": [
-      "web",
-      "typescript"
-    ],
-    "code": "https://github.com/shinahov/Ai-tune-and-refine",
-    "demo": "https://shinahov.github.io/Ai-tune-and-refine/",
-    "docsHtml": "<h4>Architecture</h4><p>A Vite, React, and TypeScript frontend is hosted on GitHub Pages. A Cloudflare Worker proxies requests to the Google Generative Language API. The interface builds on assistant-ui.</p><h4>Current scope</h4><p>The README documents basic chat as implemented. Response tuning and inline text refinement are project goals, rather than features assumed complete.</p>"
-  },
-  {
-    "order": 10,
-    "title": "Exam Protocol Processing",
-    "category": "Data preparation & search",
-    "summary": "A Python document-processing prototype that turns unstructured medical exam reports into cases, sections, and question–answer data for a planned semantic-search workflow.",
-    "tech": [
-      "Python",
-      "python-docx",
-      "Text processing"
-    ],
-    "tags": [
-      "python"
-    ],
-    "code": "https://github.com/shinahov/exam-dm-semantic-search",
-    "docsHtml": "<h4>From documents to structured data</h4><p>The current implementation reads DOCX files, cleans text, detects case headers, separates sections, and extracts question–answer content.</p><h4>Current scope</h4><p>The repository describes semantic search as its goal. The visible source currently implements the document-preparation stage; it is not presented here as a finished retrieval engine.</p>"
-  },
-  {
-    "order": 11,
-    "title": "Algorithms for Sequence Analysis",
-    "category": "Academic coursework",
-    "summary": "Python coursework exploring algorithms for strings and biological sequences, including matching, alignment, indexing, compression, and approximate matching.",
-    "tech": [
-      "Python",
-      "String algorithms",
-      "Sequence analysis"
-    ],
-    "tags": [
-      "python",
-      "bioinformatics"
-    ],
-    "code": "https://github.com/shinahov/Algorithms-for-Sequence-Analysis-Assignments",
-    "docsHtml": "<h4>Learning through implementation</h4><p>Personal solutions to programming assignments in Algorithms for Sequence Analysis. The course covers string and biological-sequence algorithms.</p><p>These are student solutions, not official reference implementations, and may contain mistakes.</p>"
+'use strict';
+
+/*
+ * Ibragim's retro desktop — main script.
+ *
+ * Sections:
+ *   1. Helpers
+ *   2. Page content (home, about, experience)
+ *   3. Project folder and project viewer
+ *   4. CV viewer
+ *   5. Browser navigation (render, back/forward)
+ *   6. Window manager (show, hide, taskbar, drag)
+ *   7. Event listeners
+ *   8. Notepad, theme and clock
+ *   9. Contact form (sends to the Cloudflare Worker → Telegram)
+ *  10. Start-up
+ *
+ * Data comes from projects.js (projectData) and content.js (personalContent).
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Helpers                                                          */
+/* ------------------------------------------------------------------ */
+
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
+
+const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => HTML_ESCAPES[char]);
+
+const MOBILE_BREAKPOINT = 850; // px — below this, windows are fixed and cannot be dragged
+const STORAGE_THEME = 'ibragim-retro-theme';
+const STORAGE_NOTE = 'ibragim-retro-note';
+
+/* ------------------------------------------------------------------ */
+/* 2. Page content                                                     */
+/* ------------------------------------------------------------------ */
+
+// Pages that are shown inside the "Personal Explorer" browser window.
+const PAGE_TITLES = {
+  home: 'Ibragim Shinakhov',
+  about: 'About me',
+  experience: 'Experience & education',
+};
+
+const HOME_HTML = `
+  <div class="eyebrow">A personal homepage</div>
+  <img class="home-photo" src="images/me.jpeg" alt="Ibragim Shinakhov">
+  <h1>I'm Ibragim<br>Shinakhov.</h1>
+  <p class="subtitle">JAVA · SQL · DATA / M.SC. AT HHU DÜSSELDORF</p>
+  <p class="availability">
+    <span class="online-dot" aria-hidden="true">●</span> Open to working student roles in Java, SQL or data — up to 20 hours a week.
+  </p>
+  <button class="contact-cta retro-button" data-open="contact">✉ Send me a message</button>
+  <hr>
+
+  <div class="home-launchers">
+    <button data-open="projects">
+      <span class="pixel-icon folder" aria-hidden="true"></span>
+      <span><strong>My projects</strong><small>11 files to explore</small></span>
+      <span aria-hidden="true">↗</span>
+    </button>
+    <button data-page="experience">
+      <span class="pixel-icon file" aria-hidden="true">Aa</span>
+      <span><strong>Experience</strong><small>Work &amp; university</small></span>
+      <span aria-hidden="true">↗</span>
+    </button>
+  </div>
+
+  <dl class="home-links">
+    <div><dt><a href="#about" data-page="about">About me →</a></dt><dd>Studies, background and skills.</dd></div>
+    <div><dt><a href="#experience" data-page="experience">Experience →</a></dt><dd>Java development, databases, BI and university.</dd></div>
+    <div><dt><a href="#cv" data-open="cv">My CV →</a></dt><dd>Read or download my CV as a PDF.</dd></div>
+    <div><dt><a href="#contact" data-open="contact">Contact →</a></dt><dd>Send me a message, or find me on GitHub and LinkedIn.</dd></div>
+  </dl>`;
+
+function aboutHtml() {
+  return `
+    <div class="eyebrow">Background</div>
+    <h1>About me</h1>
+    ${personalContent.about}
+    <h2>Next</h2>
+    <p>I want to go deeper into embedded systems and machine learning.</p>
+    ${pageFooter()}`;
+}
+
+function experienceHtml() {
+  return `
+    <div class="eyebrow">Work & university</div>
+    <h1>Experience</h1>
+    ${personalContent.experience}
+    ${pageFooter()}`;
+}
+
+function pageFooter() {
+  return `
+    <hr>
+    <p class="document-footer">
+      <span>© ${new Date().getFullYear()} Ibragim Shinakhov</span>
+      <a href="#home" data-page="home">Back to homepage ↑</a>
+    </p>`;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Project folder and project viewer                                */
+/* ------------------------------------------------------------------ */
+
+// Projects with a real screenshot: [image, alt text].
+const PROJECT_IMAGES = {
+  DriveBy: ['images/map-preview.webp', 'Route matching on a map'],
+  Clustering_B: ['images/K-means_B.png', 'Clustering visualisation in VisB'],
+  Tafel: ['images/besuch_reg.png', 'Family visit registration in the Tafel application'],
+};
+
+// Projects without a screenshot get a small text illustration:
+// [style class, heading, content, caption].
+const PROJECT_ILLUSTRATIONS = {
+  MockLang: ['code', 'MOCKLANG', 'fn main():\n  print("Hi");\nend', 'SOURCE → VM → EXECUTABLE'],
+  'ufc-fight-prediction': ['bars', 'FIGHT DATA', '▂ ▅ ▃ █ ▆', 'DATA → MODEL → PREDICTION'],
+  bioinformatics: ['dna', 'ROSALIND', 'A T G C\nT A C G', 'DNA SEQUENCE ALGORITHMS'],
+  WaveVisualizer: ['wave', 'WAVE VISUALIZER', '∿ ∿ ∿', 'ARDUINO / LCD'],
+  'bbbc039-cell-segmentation': ['cells', 'CELL SEGMENTATION', '◉ ◌ ◉\n ◌ ◉ ◌', 'MICROSCOPY / OPENCV'],
+  'Ai-tune-and-refine': [
+    'chat',
+    'AI TUNE & REFINE',
+    '[ prompt ... ]\n  [ response ... ]',
+    'REACT / TYPESCRIPT',
+  ],
+  'exam-dm-semantic-search': [
+    'document-art',
+    'EXAM PROTOCOLS',
+    'CASE 01 ─────\nQ → A ───────',
+    'DOCUMENTS → STRUCTURED DATA',
+  ],
+  'Algorithms-for-Sequence-Analysis-Assignments': [
+    'dna',
+    'SEQUENCE ANALYSIS',
+    'A C G T A\nA – G T A',
+    'MATCH / ALIGN / INDEX',
+  ],
+};
+
+// The GitHub repository name is used as the project id, e.g. ".../shinahov/MockLang" -> "MockLang".
+const projectId = (project) => new URL(project.code).pathname.split('/')[2];
+
+function projectPreviewHtml(project) {
+  const id = projectId(project);
+  const picture = PROJECT_IMAGES[id];
+
+  if (picture) {
+    const [src, alt] = picture;
+    return `
+      <span class="file-preview photo-preview">
+        <img src="${src}" alt="${escapeHtml(alt)}" loading="lazy">
+      </span>`;
   }
-];
 
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  const [style, heading, content, caption] = PROJECT_ILLUSTRATIONS[id] || [
+    'code',
+    project.title,
+    '{ … }',
+    project.tech.join(' / '),
+  ];
+  return `
+    <span class="file-preview illustration ${style}" role="img" aria-label="${escapeHtml(heading + ' — ' + caption)}">
+      <span class="art-heading">${escapeHtml(heading)}</span>
+      <span class="art-content">${escapeHtml(content)}</span>
+      <span class="art-caption">${escapeHtml(caption)}</span>
+    </span>`;
 }
 
-function projectExhibit(project) {
-  const repo = new URL(project.code).pathname.split('/')[2];
-  if (repo === 'MockLang') return `<figure class="project-visual"><div class="source-example"><p class="source-name">Example · MockLang</p><pre><code>create Person p =
-  Person("Alice", 30);
-
-print(p.name);
-print(p.age);</code></pre></div><figcaption>Source → VM → NASM → executable</figcaption></figure>`;
-  const screenshots = {
-    DriveBy: ['map-navigation.png', 'Map navigation in the DriveBy prototype'],
-    Clustering_B: ['K-means_B.png', 'K-Means model and VisB visualization']
-  };
-  if (!screenshots[repo]) return '';
-  const [file, caption] = screenshots[repo];
-  return `<figure class="project-visual"><a href="images/${file}" target="_blank" rel="noopener noreferrer" aria-label="Open ${caption} at full size"><img src="images/${repo === 'DriveBy' ? 'map-preview.webp' : file}" alt="${caption}" loading="lazy"></a><figcaption>${caption} · <a href="images/${file}" target="_blank" rel="noopener noreferrer">Full size</a></figcaption></figure>`;
+function projectFileHtml(project) {
+  return `
+    <button class="project-file" data-project="${escapeHtml(projectId(project))}" aria-label="Open ${escapeHtml(project.title)}">
+      ${projectPreviewHtml(project)}
+      <span class="file-name">${escapeHtml(project.title)}</span>
+      <span class="file-type">${escapeHtml(project.tech.slice(0, 2).join(' · '))}</span>
+      <span class="file-description">${escapeHtml(project.summary)}</span>
+      <span class="file-open">Open project ↗</span>
+    </button>`;
 }
-
-let showAllProjects = false;
 
 function renderProjects(filter = 'all') {
-  const grid = document.getElementById('projectGrid');
-  const projects = projectData.filter(project => filter === 'all' || project.tags.some(tag => tag.toLowerCase() === filter)).sort((a,b) => a.order - b.order);
-  grid.replaceChildren();
-  const visible = filter === 'all' && !showAllProjects ? projects.slice(0, 3) : projects;
-  for (const project of visible) {
-    const article = document.createElement('article');
-    const exhibit = projectExhibit(project);
-    article.className = exhibit ? 'project-card featured' : 'project-card';
-    article.id = 'project-' + new URL(project.code).pathname.split('/')[2].toLowerCase();
-    article.innerHTML = `${exhibit}<div class="project-copy"><div class="project-meta">${escapeHtml(project.category || project.tech[0])}</div>
-      <h3>${escapeHtml(project.title)}</h3><p class="project-summary">${escapeHtml(project.summary)}</p>
-      <ul class="tags" aria-label="Technologies">${project.tech.map(tech => `<li>${escapeHtml(tech)}</li>`).join('')}</ul>
-      <div class="card-actions"><a href="${escapeHtml(project.code)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.title)} source on GitHub">Source code</a>${project.demo ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener noreferrer">Live demo</a>` : ''}</div></div>`;
-    if (project.docsHtml || project.video) {
-      const details = document.createElement('details');
-      details.className = 'project-detail';
-      const summary = document.createElement('summary');
-      summary.textContent = 'Read project notes';
-      summary.setAttribute('aria-label', `Project notes for ${project.title}`);
-      const body = document.createElement('div');
-      body.className = 'detail-body';
-      body.innerHTML = project.docsHtml || '';
-      body.querySelectorAll('img').forEach(img => { img.loading = 'lazy'; img.decoding = 'async'; });
-      if (project.video) {
-        const player = document.createElement('div');
-        const videoId = new URL(project.video).searchParams.get('v');
-        const link = document.createElement('a');
-        link.href = project.video;
-        link.textContent = 'Watch demonstration on YouTube';
-        link.target = '_blank'; link.rel = 'noopener noreferrer';
-        body.prepend(player, link);
-        details.addEventListener('toggle', () => {
-          player.replaceChildren();
-          if (details.open && videoId && /^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
-            iframe.title = `${project.title} demonstration`;
-            iframe.loading = 'lazy'; iframe.allowFullscreen = true;
-            player.append(iframe);
-          }
-        });
-      }
-      details.append(summary, body);
-      article.querySelector('.project-copy').append(details);
-    }
-    grid.append(article);
+  const matches = projectData
+    .filter((project) => filter === 'all' || project.tags.some((tag) => tag.toLowerCase() === filter))
+    .sort((a, b) => a.order - b.order);
+
+  $('#project-files').innerHTML = matches.map(projectFileHtml).join('');
+  $('#folder-count').textContent = `${matches.length} project ${matches.length === 1 ? 'file' : 'files'}`;
+}
+
+function externalLink(url, label) {
+  return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+}
+
+function openProject(id) {
+  const project = projectData.find((p) => projectId(p) === id);
+  if (!project) return;
+
+  const links = [
+    externalLink(project.code, 'View source on GitHub ↗'),
+    project.demo ? externalLink(project.demo, 'Open live demo ↗') : '',
+    project.video ? externalLink(project.video, 'Watch video ↗') : '',
+  ].join('');
+
+  const content = $('#project-content');
+  $('#project-title').textContent = `${project.title} — Project viewer`;
+  content.innerHTML = `
+    <div class="project-cover">${projectPreviewHtml(project)}</div>
+    <p class="eyebrow">${escapeHtml(project.category)}</p>
+    <h1>${escapeHtml(project.title)}</h1>
+    <p class="intro">${escapeHtml(project.summary)}</p>
+    <p class="project-tech">${project.tech.map(escapeHtml).join(' · ')}</p>
+    <div class="project-links">${links}</div>
+    <div class="project-notes">${project.docsHtml || ''}</div>`;
+
+  content.scrollTop = 0;
+  showWindow('project');
+  content.focus({ preventScroll: true });
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. CV viewer                                                        */
+/* ------------------------------------------------------------------ */
+
+const CV_FILE = 'cv/Ibragim_Shinakhov_CV.pdf';
+
+// The PDF is only loaded the first time the CV window opens.
+// Phones usually cannot show PDFs inline, so they keep the "Open my CV" link from index.html.
+function loadCv() {
+  const body = $('#cv-body');
+  if (body.dataset.loaded) return;
+  body.dataset.loaded = '1';
+
+  const isPhone = matchMedia(`(max-width:${MOBILE_BREAKPOINT}px)`).matches;
+  if (isPhone || !navigator.pdfViewerEnabled) return;
+
+  const frame = document.createElement('iframe');
+  frame.src = `${CV_FILE}#view=FitH`;
+  frame.title = 'CV of Ibragim Shinakhov (PDF)';
+  body.replaceChildren(frame);
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Browser navigation                                               */
+/* ------------------------------------------------------------------ */
+
+const visitedPages = []; // pages visited in the Personal Explorer
+let historyIndex = -1;
+
+function render(page, record = true, focus = false) {
+  if (page === 'projects') {
+    showWindow('projects');
+    return;
   }
-  document.getElementById('projectCount').textContent = visible.length < projects.length ? `${visible.length} of ${projects.length} projects` : `${projects.length} project${projects.length === 1 ? '' : 's'}`;
-  const more = document.getElementById('moreProjects');
-  more.hidden = filter !== 'all';
-  more.textContent = showAllProjects ? 'Show fewer projects' : `View the other ${projectData.length - visible.length} projects`;
-  more.setAttribute('aria-expanded', String(showAllProjects));
-}
+  if (!PAGE_TITLES[page]) page = 'home';
 
-function applyTheme(mode) {
-  const dark = mode === 'dark';
-  document.documentElement.classList.toggle('theme-dark', dark);
-  const button = document.getElementById('themeToggle');
-  button.textContent = dark ? 'Light mode' : 'Dark mode';
-  button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
-  try { localStorage.setItem('theme', mode); } catch { /* Storage is optional. */ }
-}
+  if (record && visitedPages[historyIndex] !== page) {
+    visitedPages.splice(historyIndex + 1); // drop "forward" entries
+    visitedPages.push(page);
+    historyIndex = visitedPages.length - 1;
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
-  let theme = 'light';
-  try { theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'; } catch { /* Use the light palette. */ }
-  applyTheme(theme);
-  document.getElementById('themeToggle').addEventListener('click', () => applyTheme(document.documentElement.classList.contains('theme-dark') ? 'light' : 'dark'));
-  document.getElementById('projectFilter').addEventListener('change', event => renderProjects(event.target.value));
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('moreProjects').addEventListener('click', () => {
-    showAllProjects = !showAllProjects;
-    renderProjects();
-    const target = showAllProjects ? document.querySelectorAll('.project-card h3')[3] : document.getElementById('projects-title');
-    target.setAttribute('tabindex', '-1');
-    target.focus({preventScroll:true});
-    target.scrollIntoView({block:'start', behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  const documentArea = $('#document');
+  $('#window-title').textContent = PAGE_TITLES[page];
+  $('#address').textContent = `personal://ibragim/${page}`;
+
+  if (page === 'home') documentArea.innerHTML = HOME_HTML;
+  if (page === 'about') documentArea.innerHTML = aboutHtml();
+  if (page === 'experience') documentArea.innerHTML = experienceHtml();
+
+  $('#status').textContent = 'Done';
+  documentArea.scrollTop = 0;
+  $('#back').disabled = historyIndex <= 0;
+  $('#forward').disabled = historyIndex >= visitedPages.length - 1;
+
+  $$('.menubar [data-page]').forEach((button) => {
+    button.setAttribute('aria-current', button.dataset.page === page ? 'page' : 'false');
   });
-  function revealLinkedProject() {
-    if (!location.hash.startsWith('#project-')) return;
-    showAllProjects = true;
-    document.getElementById('projectFilter').value = 'all';
-    renderProjects();
-    document.getElementById(location.hash.slice(1))?.scrollIntoView({block:'start'});
+
+  showWindow('browser');
+  if (focus) documentArea.focus({ preventScroll: true });
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. Window manager                                                   */
+/* ------------------------------------------------------------------ */
+
+// Every window has the id "<name>-window". Names listed here get a taskbar button.
+const WINDOW_NAMES = {
+  browser: 'Personal Explorer',
+  projects: 'My projects',
+  project: 'Project viewer',
+  contact: 'Contact me',
+  cv: 'My CV',
+  notepad: 'Notepad',
+  mines: 'Minesweeper',
+  privacy: 'Datenschutz',
+};
+
+// Windows that cover the whole screen on phones (page scrolling is locked while they are open).
+const OVERLAY_WINDOWS = ['projects', 'project', 'cv'];
+
+const openWindows = new Set(['browser']); // windows shown in the taskbar
+let topLayer = 30; // highest z-index handed out so far
+
+const windowElement = (id) => $(`#${id}-window`);
+const isOnTop = (win) => Number(win.style.zIndex) === topLayer;
+
+function bringToFront(win) {
+  win.style.zIndex = ++topLayer;
+}
+
+function updateTaskbar() {
+  const anyOverlayOpen = OVERLAY_WINDOWS.some((id) => !windowElement(id).hidden);
+  document.body.classList.toggle('overlay-open', anyOverlayOpen);
+
+  const tasks = $('#tasks');
+  tasks.replaceChildren();
+  openWindows.forEach((id) => {
+    const win = windowElement(id);
+    const button = document.createElement('button');
+    button.textContent = WINDOW_NAMES[id];
+    button.dataset.task = id;
+    button.classList.toggle('active', !win.hidden && isOnTop(win));
+    button.setAttribute('aria-label', `Show or minimize ${WINDOW_NAMES[id]}`);
+    tasks.append(button);
+  });
+}
+
+function showWindow(id) {
+  const win = windowElement(id);
+  if (!win) return;
+  if (id === 'cv') loadCv();
+
+  win.hidden = false;
+  bringToFront(win);
+  if (WINDOW_NAMES[id]) openWindows.add(id);
+  updateTaskbar();
+}
+
+// close = false minimizes (keeps the taskbar button), close = true removes it.
+function hideWindow(id, close = false) {
+  const win = windowElement(id);
+  if (!win) return;
+
+  win.hidden = true;
+  if (close) openWindows.delete(id);
+  updateTaskbar();
+
+  if (id === 'project') {
+    // Closing a project returns to the folder it was opened from.
+    showWindow('projects');
+    $('#project-files button')?.focus();
+  } else {
+    $('#start').focus();
   }
-  renderProjects();
-  revealLinkedProject();
-  window.addEventListener('hashchange', revealLinkedProject);
+}
+
+function toggleMaximize(button) {
+  const win = windowElement(button.dataset.maximize);
+  const maximized = win.classList.toggle('maximized');
+  button.setAttribute('aria-label', maximized ? 'Restore window' : 'Maximize window');
+}
+
+function toggleFromTaskbar(id) {
+  const win = windowElement(id);
+  if (win.hidden || Number(win.style.zIndex) < topLayer) showWindow(id);
+  else hideWindow(id);
+}
+
+function closeStartMenu() {
+  $('#start-menu').hidden = true;
+  $('#start').setAttribute('aria-expanded', 'false');
+}
+
+function resetDesktop() {
+  $$('.window').forEach((win) => {
+    win.style.left = '';
+    win.style.top = '';
+    win.style.zIndex = '';
+    win.classList.remove('maximized');
+  });
+  $('#profile-window').hidden = false;
+  $('#note-window').hidden = false;
+  ['project', 'projects', 'cv', 'contact', 'privacy', 'notepad', 'mines'].forEach((id) =>
+    hideWindow(id, true),
+  );
+  $$('[data-maximize]').forEach((button) => button.setAttribute('aria-label', 'Maximize window'));
+  render('home');
+  closeStartMenu();
+}
+
+// Windows can be dragged by their title bar (desktop only).
+function makeDraggable(win) {
+  const bar = win.querySelector('.titlebar');
+  let offset = null; // pointer position inside the window while dragging
+
+  win.addEventListener('pointerdown', () => {
+    bringToFront(win);
+    updateTaskbar();
+  });
+
+  bar.addEventListener('pointerdown', (event) => {
+    const cannotDrag =
+      event.target.closest('button') ||
+      win.classList.contains('maximized') ||
+      innerWidth <= MOBILE_BREAKPOINT ||
+      event.button !== 0;
+    if (cannotDrag) return;
+
+    const rect = win.getBoundingClientRect();
+    offset = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    bar.setPointerCapture(event.pointerId);
+  });
+
+  bar.addEventListener('pointermove', (event) => {
+    if (!offset) return;
+    const left = Math.min(innerWidth - win.offsetWidth, event.clientX - offset.x);
+    const top = Math.min(innerHeight - 70, event.clientY - offset.y);
+    win.style.left = `${Math.max(0, left)}px`;
+    win.style.top = `${Math.max(0, top)}px`;
+  });
+
+  const stopDrag = () => {
+    offset = null;
+  };
+  bar.addEventListener('pointerup', stopDrag);
+  bar.addEventListener('pointercancel', stopDrag);
+}
+
+// Keep dragged windows on screen when the browser is resized.
+function keepWindowsOnScreen() {
+  $$('.window').forEach((win) => {
+    if (!win.style.left) return;
+    const left = Math.min(parseFloat(win.style.left), innerWidth - win.offsetWidth);
+    const top = Math.min(parseFloat(win.style.top) || 0, innerHeight - 100);
+    win.style.left = `${Math.max(0, left)}px`;
+    win.style.top = `${Math.max(0, top)}px`;
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. Event listeners                                                  */
+/* ------------------------------------------------------------------ */
+
+// Which element should get focus after a window is opened from a link or icon.
+const FOCUS_ON_OPEN = {
+  notepad: '#notepad',
+  contact: '#contact-message',
+  privacy: '#privacy-window .privacy-body',
+  mines: '#new-game',
+};
+
+// One click handler for the whole page; elements declare what they do with data-* attributes:
+//   data-page="about"      show a page in the Personal Explorer
+//   data-open="cv"         open a window
+//   data-project="MockLang" open a project in the project viewer
+//   data-close / data-minimize / data-maximize   window buttons
+//   data-task="cv"         taskbar button
+document.addEventListener('click', (event) => {
+  const target = event.target;
+
+  const pageLink = target.closest('[data-page]');
+  if (pageLink) {
+    event.preventDefault();
+    render(pageLink.dataset.page, true, true);
+    closeStartMenu();
+  }
+
+  const opener = target.closest('[data-open]');
+  if (opener) {
+    event.preventDefault();
+    const id = opener.dataset.open;
+    showWindow(id);
+    closeStartMenu();
+    if (FOCUS_ON_OPEN[id]) $(FOCUS_ON_OPEN[id]).focus();
+  }
+
+  const projectFile = target.closest('[data-project]');
+  if (projectFile) openProject(projectFile.dataset.project);
+
+  const closeButton = target.closest('[data-close]');
+  if (closeButton) hideWindow(closeButton.dataset.close, true);
+
+  const minimizeButton = target.closest('[data-minimize]');
+  if (minimizeButton) hideWindow(minimizeButton.dataset.minimize);
+
+  const maximizeButton = target.closest('[data-maximize]');
+  if (maximizeButton) toggleMaximize(maximizeButton);
+
+  const taskButton = target.closest('[data-task]');
+  if (taskButton) toggleFromTaskbar(taskButton.dataset.task);
+
+  if (!target.closest('#start-menu') && !target.closest('#start')) closeStartMenu();
 });
 
+// Escape closes the start menu, otherwise the top-most window (never the browser).
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+
+  if (!$('#start-menu').hidden) {
+    closeStartMenu();
+    return;
+  }
+
+  const topWindow = [...openWindows]
+    .filter((id) => id !== 'browser' && !windowElement(id).hidden)
+    .sort((a, b) => Number(windowElement(b).style.zIndex) - Number(windowElement(a).style.zIndex))[0];
+  if (topWindow) hideWindow(topWindow, true);
+});
+
+$('#back').addEventListener('click', () => {
+  if (historyIndex > 0) render(visitedPages[--historyIndex], false);
+});
+
+$('#forward').addEventListener('click', () => {
+  if (historyIndex < visitedPages.length - 1) render(visitedPages[++historyIndex], false);
+});
+
+$('#project-filter').addEventListener('change', (event) => renderProjects(event.target.value));
+
+$('#start').addEventListener('click', () => {
+  const menu = $('#start-menu');
+  menu.hidden = !menu.hidden;
+  $('#start').setAttribute('aria-expanded', String(!menu.hidden));
+});
+
+$('#reset-desktop').addEventListener('click', resetDesktop);
+
+$$('.window').forEach(makeDraggable);
+window.addEventListener('resize', keepWindowsOnScreen);
+
+/* ------------------------------------------------------------------ */
+/* 8. Notepad, theme and clock                                         */
+/* ------------------------------------------------------------------ */
+
+// localStorage can throw (private mode, blocked storage), so every access is wrapped.
+function readStorage(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// Theme: "teal" (default) or "mono".
+document.body.classList.toggle('mono', readStorage(STORAGE_THEME) === 'mono');
+$('#theme-toggle').addEventListener('click', () => {
+  const mono = document.body.classList.toggle('mono');
+  writeStorage(STORAGE_THEME, mono ? 'mono' : 'teal');
+});
+
+// Notepad: saved only in this visitor's browser, can be exported as .txt.
+const notepad = $('#notepad');
+notepad.value = readStorage(STORAGE_NOTE) || '';
+notepad.addEventListener('input', () => {
+  const saved = writeStorage(STORAGE_NOTE, notepad.value);
+  $('#save-status').textContent = saved ? 'Saved in this browser' : 'Use Save as .txt to keep your note';
+});
+
+$('#download-note').addEventListener('click', () => {
+  const file = new Blob([notepad.value], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(file);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'my-notes.txt';
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+function updateClock() {
+  const now = new Date();
+  const clock = $('#clock');
+  clock.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+  clock.dateTime = now.toISOString();
+  clock.title = now.toLocaleDateString([], { dateStyle: 'full' });
+}
+
+/* ------------------------------------------------------------------ */
+/* 9. Contact form                                                     */
+/* ------------------------------------------------------------------ */
+
+// The Worker checks the message and forwards it to Telegram. Code: worker/contact-worker.js
+// Request/response contract: worker/README.md (section "Responses").
+const CONTACT_WORKER_URL = 'https://portfolio-contact.zzibra07.workers.dev/contact';
+// The Worker only accepts this origin. A local copy (file:// or localhost) cannot send.
+const CONTACT_ALLOWED_ORIGIN = 'https://shinahov.github.io';
+const CONTACT_TIMEOUT_MS = 10000; // the Worker gives Telegram 7 s, so 10 s is enough
+const MESSAGE_MAX_LENGTH = 2000;
+
+// What the visitor sees for each error code from the Worker.
+const CONTACT_ERRORS = {
+  invalid: 'Please check your message (1–2000 characters) and try again.',
+  too_large: 'Your message is too long.',
+  default: 'Sorry, that did not work. Please send me an email instead (address below).',
+};
+const CONTACT_UNCONFIRMED =
+  'Could not reach the server, so I may not have received it. Please send me an email instead (address below).';
+const CONTACT_LOCAL_COPY =
+  'This is a local copy: sending only works on the published site (shinahov.github.io).';
+
+const contactForm = $('#contact-form');
+const contactFieldset = contactForm.querySelector('fieldset');
+const contactMessage = $('#contact-message');
+const contactStatus = $('#contact-status');
+
+function setContactStatus(text, state = '') {
+  contactStatus.textContent = text;
+  contactStatus.dataset.state = state; // "", "ok" or "error" — used for colour only
+}
+
+function updateMessageCounter() {
+  $('#contact-counter').textContent = `${contactMessage.value.length} / ${MESSAGE_MAX_LENGTH}`;
+}
+
+async function sendContactMessage(event) {
+  event.preventDefault();
+
+  const payload = {
+    name: $('#contact-name').value,
+    reply_to: $('#contact-reply').value,
+    message: contactMessage.value,
+    website: $('#contact-website').value, // honeypot, normally empty
+  };
+
+  if (!payload.message.trim()) {
+    setContactStatus('Please write a message first.', 'error');
+    contactMessage.focus();
+    return;
+  }
+
+  if (location.origin !== CONTACT_ALLOWED_ORIGIN) {
+    setContactStatus(CONTACT_LOCAL_COPY, 'error');
+    return;
+  }
+
+  // Disabling the fieldset blocks double clicks, so a message is sent only once.
+  contactFieldset.disabled = true;
+  setContactStatus('Sending…');
+
+  try {
+    const response = await fetch(CONTACT_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(CONTACT_TIMEOUT_MS),
+    });
+    const result = await response.json().catch(() => null);
+
+    if (response.ok && result && result.ok === true) {
+      contactForm.reset();
+      updateMessageCounter();
+      setContactStatus('Sent ✓ Thank you!', 'ok');
+    } else {
+      // Inputs are kept, so the visitor can fix the message or copy it into an email.
+      const code = result && result.error;
+      setContactStatus(CONTACT_ERRORS[code] || CONTACT_ERRORS.default, 'error');
+    }
+  } catch {
+    // Timeout or network error: Telegram may or may not have received it.
+    setContactStatus(CONTACT_UNCONFIRMED, 'error');
+  } finally {
+    contactFieldset.disabled = false;
+  }
+}
+
+// Drafts live only in the page: closing the window (or Escape) hides it but keeps the text.
+contactForm.addEventListener('submit', sendContactMessage);
+contactMessage.addEventListener('input', updateMessageCounter);
+
+/* ------------------------------------------------------------------ */
+/* 10. Start-up                                                        */
+/* ------------------------------------------------------------------ */
+
+updateClock();
+setInterval(updateClock, 30000);
+renderProjects();
+render('home');
+
+// Allow deep links like ".../#about" or ".../#projects".
+const initialPage = location.hash.slice(1);
+if (initialPage === 'projects' || PAGE_TITLES[initialPage]) render(initialPage);
+
+// On large screens the contact window is already open at start (placed next to the homepage text,
+// see explorer.css). It does not take the keyboard focus. Phones get the big button instead.
+const OPEN_CONTACT_AT_START = '(min-width: 1200px)';
+if (matchMedia(OPEN_CONTACT_AT_START).matches || initialPage === 'contact') showWindow('contact');

@@ -1,0 +1,14 @@
+// Only needed if the Worker is ever published from the command line (npx wrangler deploy).
+// Right now the code is pasted in the Cloudflare dashboard, so this file is just kept in sync.
+// Secrets (BOT_TOKEN, CHAT_ID) are NOT here — they live only in Cloudflare.
+{
+  "name": "portfolio-contact",
+  "main": "contact-worker.js",
+  "compatibility_date": "2026-09-30",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://shinahov.github.io"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

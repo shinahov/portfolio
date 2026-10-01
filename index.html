@@ -1,71 +1,405 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>Ibragim Shinakhov — Software Developer</title>
-  <meta name="description" content="Java working student at Mineral Minds and Computer Science master’s student at HHU Düsseldorf. Software projects, source code, and experience.">
-  <meta property="og:title" content="Ibragim Shinakhov — Software Developer">
-  <meta property="og:description" content="Projects in compilers, routing, machine learning, and formal methods. Java developer at Mineral Minds; master’s student at HHU Düsseldorf.">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="masthead wrap" id="home">
-    <a class="wordmark" href="#home">Ibragim Shinakhov</a>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ibragim Shinakhov — Personal Desktop</title>
+    <meta
+      name="description"
+      content="Portfolio of Ibragim Shinakhov, Computer Science master's student at HHU Düsseldorf: projects, experience and CV."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="explorer.css" />
+    <script src="projects.js" defer></script>
+    <script src="content.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="mines.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#document">Skip to content</a>
+    <div class="desktop-top">
+      <span>IBRAGIM'S PERSONAL COMPUTER</span><span>Solingen, Germany <span class="online-dot">●</span></span>
+    </div>
+    <nav class="desktop-icons" aria-label="Desktop shortcuts">
+      <button data-page="home">
+        <span class="pixel-icon computer" aria-hidden="true"></span><span>My homepage</span>
+      </button>
+      <button data-open="projects">
+        <span class="pixel-icon folder" aria-hidden="true"></span><span>My projects</span>
+      </button>
+      <button data-page="about">
+        <span class="pixel-icon file" aria-hidden="true">Aa</span><span>About me.txt</span>
+      </button>
+      <button data-open="cv">
+        <span class="pixel-icon file pdf-icon" aria-hidden="true">CV</span><span>My CV.pdf</span>
+      </button>
+      <button data-page="experience">
+        <span class="pixel-icon folder" aria-hidden="true"></span><span>Experience</span>
+      </button>
+      <button data-open="contact">
+        <span class="pixel-icon mail" aria-hidden="true"></span><span>Contact me</span>
+      </button>
+      <button data-open="notepad">
+        <span class="pixel-icon file" aria-hidden="true">≡</span><span>Notepad</span>
+      </button>
+      <button data-open="mines">
+        <span class="pixel-icon mine-icon" aria-hidden="true">✹</span><span>Minesweeper</span>
+      </button>
     </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">Dark mode</button>
-  </header>
-  <main class="wrap" id="main">
-    <div class="portfolio-layout">
-      <aside class="profile" aria-labelledby="intro-title">
-        <img class="profile-photo" src="images/me.jpeg" width="110" height="130" alt="Ibragim Shinakhov" fetchpriority="high">
-        <h1 id="intro-title">Ibragim<br>Shinakhov</h1>
-        <p class="profile-role">Java developer · Working student<br>Mineral Minds</p>
-        <p class="profile-study">Computer Science master’s student at HHU Düsseldorf.</p>
-        <p class="profile-location">Solingen, Germany</p>
-        <div class="profile-links"><a href="mailto:shinakhov.ibragim@gmail.com">Email</a><a href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-      </aside>
-      <section class="work" id="projects" aria-labelledby="projects-title">
-        <div class="work-heading"><h2 id="projects-title">Projects</h2><p>Code, experiments &amp; coursework</p></div>
-        <p class="work-intro">Selected projects in compilers, routing, and formal methods.</p>
-        <div class="project-toolbar">
-          <label class="filter-label" for="projectFilter">Show <select id="projectFilter"><option value="all">All projects</option><option value="python">Python</option><option value="java">Java</option><option value="c++">C++ / Embedded</option><option value="formal">Formal methods</option><option value="web">Web</option><option value="bioinformatics">Bioinformatics</option></select></label>
-          <p class="project-count" id="projectCount" aria-live="polite"></p>
+    <main id="desktop">
+      <section class="window browser-window" id="browser-window" aria-label="Personal website browser">
+        <header class="titlebar">
+          <span>▣ &nbsp; <span id="window-title">Ibragim Shinakhov</span> — Personal Explorer</span>
+          <div class="window-controls">
+            <button data-minimize="browser" aria-label="Minimize browser">_</button
+            ><button data-maximize="browser" aria-label="Maximize browser">□</button
+            ><button data-close="browser" aria-label="Close browser">×</button>
+          </div>
+        </header>
+        <nav class="menubar" aria-label="Website navigation">
+          <button data-page="home">Home</button><button data-open="projects">Projects</button
+          ><button data-page="about">About</button><button data-page="experience">Experience</button
+          ><button data-open="contact">Contact</button><button id="theme-toggle">Appearance</button>
+        </nav>
+        <div class="toolbar">
+          <button id="back" disabled><b>←</b> Back</button
+          ><button id="forward" disabled><b>→</b> Forward</button><span class="divider"></span
+          ><button data-page="home"><b>⌂</b> Home</button
+          ><button data-open="projects"><span class="tiny-folder"></span> Projects</button>
         </div>
-        <div class="project-grid" id="projectGrid"><noscript>Find all my projects on <a href="https://github.com/shinahov?tab=repositories">GitHub</a>. Enable JavaScript for notes and filtering.</noscript></div>
-        <button class="more-projects" id="moreProjects" type="button" aria-expanded="false" aria-controls="projectGrid">Show all 11 projects</button>
+        <div class="addressbar">
+          <span>Address</span>
+          <div class="address" id="address">personal://ibragim/home</div>
+          <span aria-hidden="true">↵</span>
+        </div>
+        <article class="document" id="document" tabindex="-1"></article>
+        <footer class="statusbar">
+          <span id="status" aria-live="polite">Done</span><span>◎ &nbsp; Personal web</span>
+        </footer>
       </section>
-    </div>
-    <div class="background">
-      <section class="about-copy" id="about" aria-labelledby="about-title">
-        <h2 id="about-title">About me</h2>
-        <p>I started my Computer Science bachelor’s at HHU Düsseldorf in 2021 and completed it in 2025. I returned for my master’s in February 2026.</p>
-        <p>Alongside my studies, I’ve worked in database development and business intelligence, and tutored databases and computer networks. I now work with Java at Mineral Minds.</p>
-        <p>MockLang began after a Nand2Tetris course. I wanted to see how hard it actually is to turn a small piece of code into an executable. That’s the sort of question I like following through in a project.</p>
-        <dl class="facts"><div><dt>Programming</dt><dd>Java, Python, C, C++, SQL</dd></div><div><dt>Languages</dt><dd>German, English, Russian, Kabardian</dd></div><div><dt>Location</dt><dd>Solingen, North Rhine-Westphalia</dd></div></dl>
+      <section class="window profile-window" id="profile-window" aria-label="Profile photograph">
+        <header class="titlebar">
+          <span>▧ &nbsp; hello.jpg</span>
+          <div class="window-controls">
+            <button data-close="profile" aria-label="Close photo">×</button>
+          </div>
+        </header>
+        <div class="photo-mat">
+          <img src="images/me.jpeg" alt="Ibragim Shinakhov" />
+          <div class="photo-caption">Ibragim Shinakhov<br /><span>Me</span></div>
+        </div>
+        <footer class="statusbar"><span>Solingen, DE</span><span>1 of 1</span></footer>
       </section>
-      <section class="experience" id="experience" aria-labelledby="experience-title"><h2 id="experience-title">Experience &amp; education</h2><div id="experience-content">
-        <h3 class="timeline-group-title">Professional experience</h3>
-        <article class="timeline-item"><p class="timeline-date">Jul 2026 — Present</p><div><h3>Working Student Software Developer · Java</h3><p class="organization">Mineral Minds</p><p>Working student · Remote</p></div></article>
-        <article class="timeline-item"><p class="timeline-date">Apr — Jul 2026</p><div><h3>Working Student · Business Intelligence</h3><p class="organization">CFP Brands Süßwarenhandels GmbH &amp; Co. KG</p><p>Düsseldorf · Hybrid</p></div></article>
-        <article class="timeline-item"><p class="timeline-date">Nov 2024 — Jun 2025</p><div><h3>Database Developer</h3><p class="organization">SQL Service</p><p>Wuppertal</p></div></article>
-        <article class="timeline-item"><p class="timeline-date">Apr — Oct 2024</p><div><h3>Tutor · Computer Networks</h3><p class="organization">Heinrich Heine University Düsseldorf</p></div></article>
-        <article class="timeline-item"><p class="timeline-date">Apr — Oct 2022</p><div><h3>Tutor · Databases</h3><p class="organization">Heinrich Heine University Düsseldorf</p></div></article>
-        <h3 class="timeline-group-title">Education</h3>
-        <article class="timeline-item"><p class="timeline-date">Feb 2026 — Present</p><div><h3>Master’s · Computer Science</h3><p class="organization">Heinrich Heine University Düsseldorf</p><p>Expected completion: March 2028</p></div></article>
-        <article class="timeline-item"><p class="timeline-date">Oct 2021 — Nov 2025</p><div><h3>Bachelor’s · Computer Science</h3><p class="organization">Heinrich Heine University Düsseldorf</p></div></article>
-      </div></section>
-    </div>
-    <section class="goals" id="goals" aria-labelledby="goals-title"><h2 id="goals-title">What I want to learn next</h2><p>I want to deepen my knowledge of embedded systems and machine learning, learn from experienced developers, and become better at helping teammates work through technical problems.</p></section>
-    <section class="contact" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Contact</h2><div class="contact-links"><a href="mailto:shinakhov.ibragim@gmail.com">shinakhov.ibragim@gmail.com</a><a href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ibragim-shinakhov-8214a7273/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></section>
-  </main>
-  <footer class="site-footer wrap"><span>© <span id="year">2026</span> Ibragim Shinakhov</span><a href="#home">Back to top</a></footer>
-</body>
+      <section class="window note-window" id="note-window" aria-label="Currently">
+        <header class="titlebar">
+          <span>▤ &nbsp; currently.txt</span>
+          <div class="window-controls">
+            <button data-close="note" aria-label="Close current note">×</button>
+          </div>
+        </header>
+        <div class="sticky">
+          <p>ON MY DESK</p>
+          <h2>Currently</h2>
+          <ul>
+            <li>Looking for a new working student role</li>
+            <li>Studying for my M.Sc. at HHU</li>
+          </ul>
+        </div>
+      </section>
+      <section class="window floating-window" id="contact-window" aria-label="Contact" hidden>
+        <header class="titlebar">
+          <span>✉ &nbsp; Get in touch</span>
+          <div class="window-controls">
+            <button data-close="contact" aria-label="Close contact">×</button>
+          </div>
+        </header>
+        <div class="dialog-body">
+          <h2>Contact</h2>
+          <p>Write me a message here or send an email.</p>
+          <form id="contact-form" class="contact-form" novalidate>
+            <fieldset>
+              <legend class="visually-hidden">Send me a message</legend>
+              <label for="contact-name">Name <span class="optional">(optional)</span></label>
+              <input id="contact-name" name="name" type="text" maxlength="80" autocomplete="name" />
+              <label for="contact-reply"
+                >Email or Telegram <span class="optional">(optional, so I can reply)</span></label
+              >
+              <input
+                id="contact-reply"
+                name="email"
+                type="text"
+                inputmode="email"
+                maxlength="120"
+                autocomplete="email"
+                autocapitalize="off"
+                spellcheck="false"
+              />
+              <label for="contact-message"
+                >Message
+                <img
+                  class="telegram-icon"
+                  src="images/telegram-icon.png"
+                  alt="(via Telegram)"
+                  title="Goes to my Telegram"
+                  width="16"
+                  height="16"
+              /></label>
+              <textarea id="contact-message" name="message" maxlength="2000" rows="5" required></textarea>
+              <span class="contact-counter" id="contact-counter" aria-hidden="true">0 / 2000</span>
+              <!-- Honeypot: invisible for people, bots fill it in. Must stay empty. -->
+              <div class="contact-trap" aria-hidden="true">
+                <label for="contact-website">Website</label>
+                <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="contact-actions">
+                <button type="submit" class="retro-button">Send ✉</button>
+                <span id="contact-status" role="status" aria-live="polite"></span>
+              </div>
+            </fieldset>
+            <p class="contact-privacy">
+              Your message goes via Cloudflare to my Telegram.
+              <a href="#privacy" data-open="privacy">Privacy policy</a>
+            </p>
+          </form>
+          <p class="contact-or">Or write directly:</p>
+          <p><a href="mailto:shinakhov.ibragim@gmail.com">shinakhov.ibragim@gmail.com</a></p>
+          <div class="contact-links">
+            <a href="https://github.com/shinahov" target="_blank" rel="noopener noreferrer">GitHub ↗</a
+            ><a
+              href="https://www.linkedin.com/in/ibragim-shinakhov-8214a7273/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn ↗</a
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        class="window floating-window privacy-window"
+        id="privacy-window"
+        aria-label="Datenschutzerklärung"
+        hidden
+      >
+        <header class="titlebar">
+          <span>§ &nbsp; Datenschutz.txt</span>
+          <div class="window-controls">
+            <button data-close="privacy" aria-label="Datenschutz schließen">×</button>
+          </div>
+        </header>
+        <div class="dialog-body privacy-body" lang="de" tabindex="-1">
+          <h2>Datenschutz</h2>
+          <p class="privacy-lead">Kurz und ehrlich: was mit Ihren Daten auf dieser Seite passiert.</p>
+
+          <h3>1. Wer ist verantwortlich?</h3>
+          <p>
+            Ibragim Shinakhov<br />
+            E-Mail: <a href="mailto:shinakhov.ibragim@gmail.com">shinakhov.ibragim@gmail.com</a>
+          </p>
+
+          <h3>2. Diese Website</h3>
+          <p>
+            Die Seite liegt bei GitHub Pages (GitHub, Inc., USA). Damit die Seite angezeigt werden kann,
+            verarbeitet GitHub technische Daten wie Ihre IP-Adresse und den Zeitpunkt des Aufrufs (Art. 6 Abs.
+            1 lit. f DSGVO). Diese Website setzt keine Cookies und nutzt keine Analyse- oder Tracking-Dienste.
+            Notizblock, Farbschema und Minesweeper-Bestzeit bleiben nur in Ihrem eigenen Browser.
+          </p>
+
+          <h3>3. Kontaktformular</h3>
+          <p>
+            Wenn Sie mir über das Formular schreiben, wird Ihre Nachricht übertragen – und, nur wenn Sie es
+            angeben, Ihr Name und Ihre E-Mail-Adresse oder Ihr Telegram-Name. Der Weg: Ihr Browser → ein
+            Dienst von Cloudflare, Inc. (USA) → Telegram → mein Telegram-Konto. Cloudflare und Telegram sitzen
+            außerhalb der EU; Telegram speichert den Chat auf seinen Servern.
+          </p>
+          <p>
+            Ich nutze Ihre Angaben nur, um Ihre Nachricht zu lesen und zu beantworten. Ich gebe sie nicht
+            weiter und lösche die Nachricht spätestens 6 Monate, nachdem Ihre Anfrage erledigt ist.
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (Ihre Anfrage beantworten), bei Anfragen zu einer
+            möglichen Zusammenarbeit oder Stelle Art. 6 Abs. 1 lit. b DSGVO.
+          </p>
+
+          <h3>4. Sicherheit</h3>
+          <p>
+            Die Übertragung ist verschlüsselt (HTTPS), und der Zugang zu meinem Telegram-Bot liegt geschützt
+            bei Cloudflare. Trotzdem kann bei einer Übertragung über das Internet niemand eine vollständige
+            Sicherheit garantieren. Bitte senden Sie über das Formular deshalb keine sensiblen Daten wie
+            Passwörter, Gesundheits- oder Bankdaten. Wenn Sie das Formular nicht nutzen möchten, schreiben Sie
+            mir einfach eine E-Mail.
+          </p>
+
+          <h3>5. Ihre Rechte</h3>
+          <p>
+            Sie können jederzeit Auskunft über Ihre Daten verlangen und deren Berichtigung, Löschung oder
+            Einschränkung verlangen, der Verarbeitung widersprechen und Ihre Daten übertragen lassen (Art.
+            15–21 DSGVO). Eine E-Mail an mich genügt. Außerdem können Sie sich bei einer
+            Datenschutz-Aufsichtsbehörde beschweren, z. B. bei der Landesbeauftragten für Datenschutz und
+            Informationsfreiheit Nordrhein-Westfalen.
+          </p>
+          <p class="privacy-date">Stand: Oktober 2026</p>
+        </div>
+      </section>
+      <section class="window folder-window" id="projects-window" aria-label="My projects folder" hidden>
+        <header class="titlebar">
+          <span>▰ &nbsp; My projects</span>
+          <div class="window-controls">
+            <button data-minimize="projects" aria-label="Minimize projects">_</button
+            ><button data-maximize="projects" aria-label="Maximize projects">□</button
+            ><button data-close="projects" aria-label="Close projects">×</button>
+          </div>
+        </header>
+        <div class="folder-toolbar">
+          <span class="tiny-folder" aria-hidden="true"></span><span>My projects</span
+          ><label for="project-filter"
+            >Show
+            <select id="project-filter">
+              <option value="all">All files</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="c++">C++ / Embedded</option>
+              <option value="formal">Formal methods</option>
+              <option value="web">Web</option>
+              <option value="bioinformatics">Bioinformatics</option>
+            </select></label
+          >
+        </div>
+        <div class="addressbar">
+          <span>Address</span>
+          <div class="address">C:\Ibragim\My projects</div>
+        </div>
+        <div class="folder-body">
+          <p class="folder-hint">Pick a file to open its screenshots, story and source code.</p>
+          <div class="project-files" id="project-files"></div>
+        </div>
+        <footer class="statusbar">
+          <span id="folder-count" role="status"></span><span>Single click to open</span>
+        </footer>
+      </section>
+      <section class="window project-window" id="project-window" aria-label="Project viewer" hidden>
+        <header class="titlebar">
+          <span id="project-title">Project viewer</span>
+          <div class="window-controls">
+            <button data-minimize="project" aria-label="Minimize project">_</button
+            ><button data-maximize="project" aria-label="Maximize project">□</button
+            ><button data-close="project" aria-label="Close project">×</button>
+          </div>
+        </header>
+        <div class="folder-toolbar">
+          <button class="retro-button" data-close="project">← Back to folder</button
+          ><span>Project preview</span>
+        </div>
+        <article class="project-content" id="project-content" tabindex="-1"></article>
+      </section>
+      <section class="window cv-window" id="cv-window" aria-label="My CV" hidden>
+        <header class="titlebar">
+          <span>▤ &nbsp; My CV.pdf — Document viewer</span>
+          <div class="window-controls">
+            <button data-minimize="cv" aria-label="Minimize CV">_</button
+            ><button data-maximize="cv" aria-label="Maximize CV">□</button
+            ><button data-close="cv" aria-label="Close CV">×</button>
+          </div>
+        </header>
+        <div class="folder-toolbar">
+          <a class="retro-button" href="cv/Ibragim_Shinakhov_CV.pdf" target="_blank" rel="noopener"
+            >Open in new tab ↗</a
+          ><a class="retro-button" href="cv/Ibragim_Shinakhov_CV.pdf" download="Ibragim_Shinakhov_CV.pdf"
+            >Download PDF ↓</a
+          ><span class="cv-hint">Curriculum vitae · 2 pages</span>
+        </div>
+        <div class="cv-body" id="cv-body">
+          <p class="cv-fallback">
+            <strong>My CV (PDF, 2 pages)</strong><br /><a
+              href="cv/Ibragim_Shinakhov_CV.pdf"
+              target="_blank"
+              rel="noopener"
+              >Open my CV ↗</a
+            >
+          </p>
+        </div>
+      </section>
+      <section class="window floating-window" id="notepad-window" aria-label="Personal notepad" hidden>
+        <header class="titlebar">
+          <span>▤ &nbsp; Untitled — Notepad</span>
+          <div class="window-controls">
+            <button data-close="notepad" aria-label="Close notepad">×</button>
+          </div>
+        </header>
+        <label class="notepad-label" for="notepad"
+          >A little space for your thoughts. Saved only in this browser.</label
+        ><textarea id="notepad" placeholder="What's on your mind?" spellcheck="true"></textarea>
+        <footer class="statusbar">
+          <span id="save-status" aria-live="polite">Ready</span
+          ><button id="download-note">Save as .txt</button>
+        </footer>
+      </section>
+      <section
+        class="window floating-window mines-window"
+        id="mines-window"
+        aria-label="Minesweeper game"
+        hidden
+      >
+        <header class="titlebar">
+          <span>✹ &nbsp; Minesweeper</span>
+          <div class="window-controls">
+            <button data-minimize="mines" aria-label="Minimize Minesweeper">_</button
+            ><button data-close="mines" aria-label="Close Minesweeper">×</button>
+          </div>
+        </header>
+        <div class="mines-body">
+          <div class="mines-dashboard">
+            <output id="mine-count" aria-label="Mines minus flags">010</output
+            ><button id="new-game" aria-label="New game" title="Start a new game">☺</button
+            ><output id="mine-time" aria-label="Elapsed seconds">000</output>
+          </div>
+          <div
+            class="mine-board"
+            id="mine-board"
+            role="group"
+            aria-label="Minefield, 8 rows by 8 columns"
+          ></div>
+          <div class="mine-options">
+            <button id="flag-mode" aria-pressed="false">⚑ Flag mode: off</button
+            ><span id="mine-best">Best: —</span>
+          </div>
+          <p id="mine-message" role="status">Find the 10 mines. Your first move is safe.</p>
+          <p class="mine-help">
+            Click to reveal. Right-click to flag, or use Flag mode on touch screens. Arrow keys move; F places
+            a flag.
+          </p>
+        </div>
+      </section>
+    </main>
+    <nav id="start-menu" aria-label="Start menu" hidden>
+      <div class="start-brand">Ibragim <strong>98</strong></div>
+      <div>
+        <strong class="start-heading">Welcome to my desktop</strong
+        ><button data-page="home">▣ &nbsp; My homepage</button
+        ><button data-open="projects">▰ &nbsp; My projects</button
+        ><button data-page="about">▤ &nbsp; About me</button><button data-open="cv">▤ &nbsp; My CV</button
+        ><button data-page="experience">▰ &nbsp; Experience</button>
+        <hr />
+        <button data-open="notepad">▤ &nbsp; Notepad</button
+        ><button data-open="contact">✉ &nbsp; Contact me</button
+        ><button data-open="privacy">§ &nbsp; Datenschutz</button
+        ><button data-open="mines">✹ &nbsp; Minesweeper</button
+        ><button id="reset-desktop">↺ &nbsp; Reset desktop</button>
+      </div>
+    </nav>
+    <footer class="taskbar">
+      <button id="start" aria-expanded="false" aria-controls="start-menu">
+        <span class="start-logo" aria-hidden="true">▦</span> Start</button
+      ><span class="task-divider"></span>
+      <div id="tasks"></div>
+      <span class="ai-note" title="This website was created with the help of AI tools (Claude and Codex)."
+        >Made with AI</span
+      ><span class="system-tray"><span aria-hidden="true">▣</span><time id="clock"></time></span>
+    </footer>
+    <noscript
+      ><div class="no-script">
+        This desktop needs JavaScript. You can also visit
+        <a href="classic/index.html">my previous portfolio</a> or
+        <a href="https://github.com/shinahov">my GitHub</a>, or email me at
+        <a href="mailto:shinakhov.ibragim@gmail.com">shinakhov.ibragim@gmail.com</a>.
+      </div></noscript
+    >
+  </body>
 </html>
