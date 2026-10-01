@@ -820,6 +820,14 @@
   }
 }
 
+/* Medium screens (1000–1199 px): the contact window sits at the right edge. */
+@media (min-width: 1000px) and (max-width: 1199px) {
+  #contact-window {
+    left: auto;
+    right: 12px;
+  }
+}
+
 /* Desktop icons always fit above the taskbar, also on short laptop screens at 100 % zoom.
    The space between icons shrinks with the window height. */
 @media (min-width: 851px) {

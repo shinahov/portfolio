@@ -49,7 +49,7 @@ const HOME_HTML = `
   <h1>I'm Ibragim<br>Shinakhov.</h1>
   <p class="subtitle">JAVA · SQL · DATA / M.SC. AT HHU DÜSSELDORF</p>
   <p class="availability">
-    <span class="online-dot" aria-hidden="true">●</span> Open to working student roles in Java, SQL or data — up to 20 hours a week.
+    <span class="online-dot" aria-hidden="true">●</span> Open to working student roles.
   </p>
   <button class="contact-cta retro-button" data-open="contact">✉ Send me a message</button>
   <hr>
@@ -691,7 +691,7 @@ render('home');
 const initialPage = location.hash.slice(1);
 if (initialPage === 'projects' || PAGE_TITLES[initialPage]) render(initialPage);
 
-// On large screens the contact window is already open at start (placed next to the homepage text,
+// On screens from 1000 px the contact window is already open at start (placed next to the homepage text,
 // see explorer.css). It does not take the keyboard focus. Phones get the big button instead.
-const OPEN_CONTACT_AT_START = '(min-width: 1200px)';
+const OPEN_CONTACT_AT_START = '(min-width: 1000px)';
 if (matchMedia(OPEN_CONTACT_AT_START).matches || initialPage === 'contact') showWindow('contact');
